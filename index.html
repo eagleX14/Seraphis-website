@@ -32,6 +32,7 @@
             transition: transform 0.3s ease;
             border: 2px solid #f1c40f; /* Border for button */
             margin-top: 20px;
+            display: inline-block;
         }
 
         .button:hover {
@@ -59,29 +60,45 @@
             margin: 0 auto;
         }
 
-        /* Additional Styles for content section */
-        .services {
+        .packages {
             display: flex;
             justify-content: center;
             margin-top: 40px;
+            flex-wrap: wrap;
         }
 
-        .service {
-            background-color: #2a2a2a; /* Dark grey boxes for service info */
+        .package {
+            background-color: #2a2a2a; /* Dark grey boxes for packages */
             color: #fff;
             padding: 30px;
             margin: 10px;
             border-radius: 10px;
             flex: 1;
+            max-width: 300px;
             transition: transform 0.3s ease;
         }
 
-        .service:hover {
+        .package:hover {
             transform: scale(1.05);
         }
 
-        .service h3 {
+        .package h3 {
             color: #f1c40f;
+        }
+
+        .package p {
+            font-size: 16px;
+        }
+
+        .package .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f1c40f;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px 0;
         }
     </style>
 </head>
@@ -90,23 +107,72 @@
         <div class="container">
             <h1>Welcome to Seraphis IT and Data Solutions</h1>
             <h2>Your Trusted Partner in IT Services</h2>
-            <p>Delivering web hosting, container management, security solutions, and more.</p>
+            <p>We specialize in web hosting, VM/container management, security solutions, compliance, and data services tailored for small to medium businesses.</p>
             <a href="#services" class="button">Explore Our Services</a>
+            <a href="#packages" class="button">View Packages and Pricing</a>
+            <a href="#contact" class="button">Contact Us</a>
         </div>
     </header>
 
-    <section id="services" class="services">
-        <div class="service">
-            <h3>Web Hosting</h3>
-            <p>Reliable, scalable, and secure web hosting for businesses of all sizes. Keep your site up and running smoothly.</p>
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>We offer expert IT solutions to help businesses protect their data, maintain compliance, and optimize their IT infrastructure. Learn more about our services:</p>
+            <ul>
+                <li><strong>Cybersecurity SOC Analysts Services</strong>: 24/7 Monitoring, Incident Response, Threat Detection, Vulnerability Management.</li>
+                <li><strong>Compliance Insurance Solutions</strong>: GDPR, POPIA, Risk Assessments, Compliance Reporting.</li>
+            </ul>
         </div>
-        <div class="service">
-            <h3>VM/Containers Deployment</h3>
-            <p>Manage virtual machines and containers efficiently with seamless integration into your business infrastructure.</p>
+    </section>
+
+    <section id="packages" class="packages">
+        <div class="package">
+            <h3>Basic Cybersecurity Package</h3>
+            <p>Perfect for small businesses looking for basic security monitoring.</p>
+            <p class="price">$500/month</p>
+            <ul>
+                <li>24/7 Monitoring</li>
+                <li>Threat Detection</li>
+                <li>Incident Response</li>
+            </ul>
+            <a href="mailto:contact@seraphisit.com" class="button">Get Started</a>
         </div>
-        <div class="service">
-            <h3>Security Compliance</h3>
-            <p>Ensure compliance with regulations such as GDPR and POPIA with our expert guidance and security measures.</p>
+        <div class="package">
+            <h3>Advanced Cybersecurity Package</h3>
+            <p>Comprehensive security suite for businesses with advanced needs.</p>
+            <p class="price">$1000/month</p>
+            <ul>
+                <li>All features in Basic Package</li>
+                <li>Vulnerability Management</li>
+                <li>Compliance Reporting</li>
+            </ul>
+            <a href="mailto:contact@seraphisit.com" class="button">Get Started</a>
+        </div>
+        <div class="package">
+            <h3>Compliance Insurance Package</h3>
+            <p>Ensure full compliance with regulatory standards.</p>
+            <p class="price">$750/month</p>
+            <ul>
+                <li>GDPR and POPIA Compliance</li>
+                <li>Risk Assessments</li>
+                <li>Documentation and Reporting</li>
+            </ul>
+            <a href="mailto:contact@seraphisit.com" class="button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Seraphis IT and Data Solutions is dedicated to providing cutting-edge technology and security services to help businesses stay competitive. Our team of experts ensures that your systems run efficiently, securely, and in compliance with the latest industry standards.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to get started? Reach out to us today, and let's discuss how we can support your business's IT and data needs.</p>
+            <a href="mailto:contact@seraphisit.com" class="button">Email Us</a>
         </div>
     </section>
 
