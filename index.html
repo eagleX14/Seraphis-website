@@ -1,209 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seraphis IT and Data Solutions</title>
-    <style>
-        body {
-            background-color: #1f1f1f;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .container {
-            padding: 50px;
-        }
-
-        h1, h2 {
-            color: #f1c40f;
-        }
-
-        .button {
-            background-color: #f1c40f;
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 16px;
-            transition: transform 0.3s ease;
-            border: 2px solid #f1c40f;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        .button:hover {
-            transform: scale(1.1);
-            background-color: #e1b20f;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        h1, h2 {
-            animation: fadeIn 2s ease-out;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .packages {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .package {
-            background-color: #2a2a2a;
-            color: #fff;
-            padding: 30px;
-            margin: 10px;
-            border-radius: 10px;
-            flex: 1;
-            max-width: 300px;
-            transition: transform 0.3s ease;
-        }
-
-        .package:hover {
-            transform: scale(1.05);
-        }
-
-        .package h3 {
-            color: #f1c40f;
-        }
-
-        .package p, .package ul {
-            font-size: 16px;
-            text-align: left;
-        }
-
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        input, textarea {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        footer {
-            background-color: #333;
-            padding: 20px 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Seraphis IT and Data Solutions - Cybersecurity, Cloud, Data Mining and Regulatory Compliance Solutions" />
+  <meta name="keywords" content="Cybersecurity, Cloud, Data Mining, GDPR, POPIA, PIPL, Compliance, SOC, Certificate Authority" />
+  <meta name="author" content="Seraphis IT and Data Solutions" />
+  <title>Seraphis IT and Data Solutions</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background-color: #000; color: #FFD700; }
+    header { background-color: #111; padding: 2rem; text-align: center; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    nav a { color: #FFD700; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+    section { padding: 3rem 2rem; max-width: 1200px; margin: auto; }
+    .service, .package { margin-bottom: 2rem; }
+    h2 { font-size: 2rem; border-bottom: 1px solid #FFD700; margin-bottom: 1rem; }
+    .button { display: inline-block; padding: 0.6rem 1.2rem; color: black; background-color: #FFD700; text-decoration: none; border-radius: 5px; transition: 0.3s; }
+    .button:hover { background-color: #e6c200; }
+    form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: auto; }
+    input, textarea { padding: 0.8rem; border: none; border-radius: 5px; }
+    input[type="submit"] { background-color: #FFD700; color: #000; font-weight: bold; cursor: pointer; }
+    input[type="submit"]:hover { background-color: #e6c200; }
+    footer { text-align: center; padding: 2rem; background-color: #111; margin-top: 3rem; }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Welcome to Seraphis IT and Data Solutions</h1>
-            <h2>Your Trusted Partner in IT Services</h2>
-            <p>We specialize in web hosting, VM/container management, security solutions, compliance, and data services tailored for small to medium businesses.</p>
-            <a href="#services" class="button">Explore Our Services</a>
-            <a href="#packages" class="button">View Our Packages</a>
-            <a href="#contact" class="button">Contact Us</a>
-        </div>
-    </header>
+  <header>
+    <h1>Seraphis IT and Data Solutions</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <ul>
-                <li><strong>Cybersecurity SOC Analysts Services</strong>: 24/7 Monitoring, Incident Response, Threat Detection, Vulnerability Management.</li>
-                <li><strong>Compliance Insurance Solutions</strong>: GDPR, POPIA, PIPL, Risk Assessments, Compliance Reporting.</li>
-                <li><strong>Cloud Computing for Legacy Hardware</strong>: Access modern software using outdated systems via virtual desktops.</li>
-                <li><strong>Network & Web Application Security</strong>: Hardening and securing infrastructure.</li>
-                <li><strong>Data Mining & Processing</strong>: Insights generation and analytics.</li>
-                <li><strong>Certificate Authority</strong>: Compliance-driven digital identity solutions.</li>
-            </ul>
-        </div>
-    </section>
+  <section id="landing">
+    <h2>Empowering Your Business with Secure, Smart IT Solutions</h2>
+    <p>We help organizations of all sizes modernize, secure, and gain insights from their data using our cutting-edge technology and expert knowledge.</p>
+  </section>
 
-    <section id="packages" class="packages">
-        <div class="package">
-            <h3>Small Business Package</h3>
-            <p>Ideal for startups and local businesses needing essential coverage.</p>
-            <ul>
-                <li>Basic SOC Analyst Coverage</li>
-                <li>Compliance Readiness</li>
-                <li>Virtual Machines & Software Hosting</li>
-                <li>Basic Data Processing and Reports</li>
-            </ul>
-            <a href="#contact" class="button">Enquire Now</a>
-        </div>
-        <div class="package">
-            <h3>Medium Business Package</h3>
-            <p>Balanced solution for growing businesses with moderate IT needs.</p>
-            <ul>
-                <li>Advanced Threat Monitoring</li>
-                <li>Full Compliance Insurance (GDPR, POPIA, etc.)</li>
-                <li>Cloud Workstations</li>
-                <li>Network Hardening</li>
-                <li>Data Processing and Analytics Reports</li>
-            </ul>
-            <a href="#contact" class="button">Enquire Now</a>
-        </div>
-        <div class="package">
-            <h3>Enterprise Package</h3>
-            <p>Full-feature solution for large organizations with custom needs.</p>
-            <ul>
-                <li>Dedicated SOC Support</li>
-                <li>Complete Compliance & Legal Coverage</li>
-                <li>Infrastructure Hosting & Support</li>
-                <li>Comprehensive Data Insights and Reports</li>
-                <li>Certificate Authority Integration</li>
-            </ul>
-            <a href="#contact" class="button">Enquire Now</a>
-        </div>
-        <div class="package">
-            <h3>Data Insights Package</h3>
-            <p>Tailored data intelligence for any business size.</p>
-            <ul>
-                <li>Data Mining & Processing</li>
-                <li>Trend and Insight Reporting</li>
-                <li>Business Intelligence Dashboards</li>
-                <li>Support for Strategic Decision-Making</li>
-            </ul>
-            <a href="#contact" class="button">Enquire Now</a>
-        </div>
-    </section>
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service">
+      <h3>Cybersecurity SOC Analyst Services</h3>
+      <p>24/7 monitoring, threat detection, and incident response tailored to your business environment.</p>
+    </div>
+    <div class="service">
+      <h3>Regulatory Compliance Insurance</h3>
+      <p>Assistance with GDPR, POPIA, and PIPL to ensure your business remains compliant and secure.</p>
+    </div>
+    <div class="service">
+      <h3>Cloud Computing for Legacy Hardware</h3>
+      <p>Migrate outdated systems to secure, scalable cloud platforms without compromising functionality.</p>
+    </div>
+    <div class="service">
+      <h3>Network & Web Application Security</h3>
+      <p>Security audits, hardening, and protection mechanisms to safeguard your digital assets.</p>
+    </div>
+    <div class="service">
+      <h3>Data Mining & Processing</h3>
+      <p>Turn your raw data into actionable insights and business intelligence.</p>
+    </div>
+    <div class="service">
+      <h3>Certificate Authority Services</h3>
+      <p>Custom digital certificates aligned with POPIA standards for secure communications.</p>
+    </div>
+  </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Have a question or want to know more about our services? Fill out the form below and we’ll get back to you shortly.</p>
-            <form action="https://formspree.io/f/xwkgqovz" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="phone" placeholder="Your Contact Number">
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit" class="button">Submit</button>
-            </form>
-        </div>
-    </section>
+  <section id="packages">
+    <h2>Business Packages</h2>
+    <div class="package">
+      <h3>Small Business Package</h3>
+      <p>Basic security and data tools to get started.</p>
+      <a href="#contact" class="button">Enquire Now</a>
+    </div>
+    <div class="package">
+      <h3>Medium Business Package</h3>
+      <p>Compliance support and proactive security monitoring.</p>
+      <a href="#contact" class="button">Enquire Now</a>
+    </div>
+    <div class="package">
+      <h3>Enterprise Package</h3>
+      <p>Complete security stack and managed services for large environments.</p>
+      <a href="#contact" class="button">Enquire Now</a>
+    </div>
+    <div class="package">
+      <h3>Data Insights Package</h3>
+      <p>Advanced data mining, reports, and analytics for strategic decisions.</p>
+      <a href="#contact" class="button">Enquire Now</a>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <p>© 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
-        </div>
-    </footer>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/xqkrwqpj" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="phone" placeholder="Your Phone Number" />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message" />
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
+  </footer>
 </body>
 </html>
