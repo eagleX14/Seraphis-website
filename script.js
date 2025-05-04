@@ -1,1 +1,1 @@
-console.log('Welcome to Seraphis IT and Data Solutions');
+console.log('Website loaded successfully.');
