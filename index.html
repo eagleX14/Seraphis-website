@@ -1,224 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Seraphis IT and Data Solutions - Cybersecurity, Cloud, Data Mining and Regulatory Compliance Solutions" />
-  <meta name="keywords" content="Cybersecurity, Cloud, Data Mining, GDPR, POPIA, PIPL, Compliance, SOC, Certificate Authority" />
-  <meta name="author" content="Seraphis IT and Data Solutions" />
-  <title>Seraphis IT and Data Solutions</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('https://images.unsplash.com/photo-1555949963-aa79dcee9818?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #FFD700;
-      line-height: 1.6;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: -1;
-    }
-    header {
-      background-color: rgba(26, 26, 26, 0.9);
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
-    }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
-    }
-    nav a {
-      color: #FFD700;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #fff; }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .service, .package {
-      margin-bottom: 2.5rem;
-      padding: 1rem;
-      border-left: 3px solid #FFD700;
-      background-color: rgba(17, 17, 17, 0.9);
-      border-radius: 6px;
-    }
-    h2 {
-      font-size: 2.2rem;
-      border-bottom: 2px solid #FFD700;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-    }
-    h3 {
-      font-size: 1.4rem;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1rem;
-      color: #e6e6e6;
-    }
-    .button {
-      display: inline-block;
-      padding: 0.7rem 1.4rem;
-      color: black;
-      background-color: #FFD700;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.3s ease-in-out;
-      font-weight: bold;
-    }
-    .button:hover { background-color: #e6c200; }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin: auto;
-    }
-    input, textarea {
-      padding: 0.9rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      background-color: #222;
-      color: #fff;
-    }
-    input[type="submit"] {
-      background-color: #FFD700;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    input[type="submit"]:hover { background-color: #e6c200; }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: rgba(26, 26, 26, 0.9);
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraphis IT and Data Solutions</title>
+    <style>
+        body {
+            background-color: #1f1f1f; /* Dark slate background */
+            color: #fff; /* White text */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1, h2 {
+            color: #f1c40f; /* Gold accent color for headings */
+        }
+
+        .button {
+            background-color: #f1c40f; /* Gold button */
+            color: #000; /* Black text */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+            border: 2px solid #f1c40f; /* Border for button */
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #e1b20f; /* Slightly darker gold on hover */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1, h2 {
+            animation: fadeIn 2s ease-out;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Additional Styles for content section */
+        .services {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .service {
+            background-color: #2a2a2a; /* Dark grey boxes for service info */
+            color: #fff;
+            padding: 30px;
+            margin: 10px;
+            border-radius: 10px;
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+        }
+
+        .service h3 {
+            color: #f1c40f;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Seraphis IT and Data Solutions</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#packages">Packages</a>
-      <a href="#why-seraphis">Why Seraphis?</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <header>
+        <div class="container">
+            <h1>Welcome to Seraphis IT and Data Solutions</h1>
+            <h2>Your Trusted Partner in IT Services</h2>
+            <p>Delivering web hosting, container management, security solutions, and more.</p>
+            <a href="#services" class="button">Explore Our Services</a>
+        </div>
+    </header>
 
-  <section id="landing">
-    <h2>Empowering Your Business with Secure, Smart IT Solutions</h2>
-    <p>We help organizations of all sizes modernize, secure, and gain insights from their data using cutting-edge technology and our expert team.</p>
-  </section>
+    <section id="services" class="services">
+        <div class="service">
+            <h3>Web Hosting</h3>
+            <p>Reliable, scalable, and secure web hosting for businesses of all sizes. Keep your site up and running smoothly.</p>
+        </div>
+        <div class="service">
+            <h3>VM/Containers Deployment</h3>
+            <p>Manage virtual machines and containers efficiently with seamless integration into your business infrastructure.</p>
+        </div>
+        <div class="service">
+            <h3>Security Compliance</h3>
+            <p>Ensure compliance with regulations such as GDPR and POPIA with our expert guidance and security measures.</p>
+        </div>
+    </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="service">
-      <h3>Cybersecurity SOC Analyst Services</h3>
-      <p>24/7 monitoring, threat detection, and incident response tailored to your business environment. A necessity in the age of constant cyber threats and ransomware attacks.</p>
-    </div>
-    <div class="service">
-      <h3>Regulatory Compliance Insurance</h3>
-      <p>Assistance with GDPR, POPIA, and PIPL to ensure your business remains compliant and secure. Non-compliance can lead to heavy fines and reputational damage.</p>
-    </div>
-    <div class="service">
-      <h3>Cloud Computing for Legacy Hardware</h3>
-      <p>Migrate outdated systems to secure, scalable cloud platforms without compromising functionality. Helps reduce cost, improve reliability, and enable remote workforces.</p>
-    </div>
-    <div class="service">
-      <h3>Network & Web Application Security</h3>
-      <p>Security audits, hardening, and protection mechanisms to safeguard your digital assets from breaches, defacements, and unauthorized access.</p>
-    </div>
-    <div class="service">
-      <h3>Data Mining & Processing</h3>
-      <p>Turn your raw data into actionable insights and business intelligence for better decision-making. Invaluable in modern data-driven business environments.</p>
-    </div>
-    <div class="service">
-      <h3>Certificate Authority Services</h3>
-      <p>Custom digital certificates aligned with POPIA standards to protect your digital infrastructure and customer trust through strong encryption and digital identities.</p>
-    </div>
-  </section>
-
-  <section id="packages">
-    <h2>Business Packages</h2>
-    <div class="package">
-      <h3>Small Business Package</h3>
-      <p>Basic security and compliance tools to protect your foundation and build trust.</p>
-      <a href="#contact" class="button">Enquire Now</a>
-    </div>
-    <div class="package">
-      <h3>Medium Business Package</h3>
-      <p>Expanded support including regulatory compliance, SOC services, and basic cloud solutions.</p>
-      <a href="#contact" class="button">Enquire Now</a>
-    </div>
-    <div class="package">
-      <h3>Enterprise Package</h3>
-      <p>Comprehensive security, compliance, and infrastructure management for large-scale organizations.</p>
-      <a href="#contact" class="button">Enquire Now</a>
-    </div>
-    <div class="package">
-      <h3>Data Insights Package</h3>
-      <p>Advanced data mining, real-time reporting, and business intelligence tailored for data-driven enterprises.</p>
-      <a href="#contact" class="button">Enquire Now</a>
-    </div>
-    <div class="package">
-      <h3>Digital Trust & Certificate Authority Package</h3>
-      <p>Enterprise-grade CA services with encryption, signing, and POPIA-compliant digital identity solutions.</p>
-      <a href="#contact" class="button">Enquire Now</a>
-    </div>
-  </section>
-
-  <section id="why-seraphis">
-    <h2>Why Choose Seraphis?</h2>
-    <div class="service">
-      <h3>Substance over Hype</h3>
-      <p>We deliver tangible results, not just buzzwords. Every solution is tested, scalable, and business-driven.</p>
-    </div>
-    <div class="service">
-      <h3>Green and Sustainable IT</h3>
-      <p>Our infrastructure solutions aim to reduce energy waste and promote cloud-native, low-emission computing. We align with modern ESG expectations.</p>
-    </div>
-    <div class="service">
-      <h3>Financial Efficiency</h3>
-      <p>Cost-effective service packages that reduce overhead, avoid regulatory fines, and improve ROI by leveraging automation and secure-by-design principles.</p>
-    </div>
-    <div class="service">
-      <h3>Strategic Partnership</h3>
-      <p>Seraphis doesn’t sell solutions; we build long-term relationships to grow with your business and stay aligned with your mission and vision.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/xqkrwqpj" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="text" name="phone" placeholder="Your Phone Number" />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <input type="submit" value="Send Message" />
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
-  </footer>
+    <footer>
+        <div class="container">
+            <p>© 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
