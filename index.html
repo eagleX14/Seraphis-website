@@ -1,85 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seraphis IT and Data Solutions</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraphis IT and Data Solutions</title>
+    <style>
+        body {
+            background-color: #1f1f1f; /* Dark slate background */
+            color: #fff; /* White text */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1, h2 {
+            color: #f1c40f; /* Gold accent color for headings */
+        }
+
+        .button {
+            background-color: #f1c40f; /* Gold button */
+            color: #000; /* Black text */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+            border: 2px solid #f1c40f; /* Border for button */
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #e1b20f; /* Slightly darker gold on hover */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1, h2 {
+            animation: fadeIn 2s ease-out;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Additional Styles for content section */
+        .services {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .service {
+            background-color: #2a2a2a; /* Dark grey boxes for service info */
+            color: #fff;
+            padding: 30px;
+            margin: 10px;
+            border-radius: 10px;
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+        }
+
+        .service h3 {
+            color: #f1c40f;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <header class="bg-blue-900 text-white p-6">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Seraphis IT and Data Solutions</h1>
-      <nav>
-        <ul class="flex space-x-4">
-          <li><a href="#services" class="hover:underline">Services</a></li>
-          <li><a href="#about" class="hover:underline">About</a></li>
-          <li><a href="#contact" class="hover:underline">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Seraphis IT and Data Solutions</h1>
+            <h2>Your Trusted Partner in IT Services</h2>
+            <p>Delivering web hosting, container management, security solutions, and more.</p>
+            <a href="#services" class="button">Explore Our Services</a>
+        </div>
+    </header>
 
-  <section class="text-center py-20 bg-gradient-to-r from-blue-800 to-blue-600 text-white">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-4">Empowering Businesses with Secure Cloud Solutions</h2>
-      <p class="text-xl">Web Hosting, Cloud VMs, Compliance, Security & Data Intelligence</p>
-    </div>
-  </section>
+    <section id="services" class="services">
+        <div class="service">
+            <h3>Web Hosting</h3>
+            <p>Reliable, scalable, and secure web hosting for businesses of all sizes. Keep your site up and running smoothly.</p>
+        </div>
+        <div class="service">
+            <h3>VM/Containers Deployment</h3>
+            <p>Manage virtual machines and containers efficiently with seamless integration into your business infrastructure.</p>
+        </div>
+        <div class="service">
+            <h3>Security Compliance</h3>
+            <p>Ensure compliance with regulations such as GDPR and POPIA with our expert guidance and security measures.</p>
+        </div>
+    </section>
 
-  <section id="services" class="py-16">
-    <div class="container mx-auto">
-      <h3 class="text-3xl font-bold text-center mb-10">Our Services</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="p-6 bg-white rounded shadow">
-          <h4 class="text-xl font-semibold mb-2">Web Hosting</h4>
-          <p>Reliable and secure cloud-based web hosting tailored for scalability and performance.</p>
+    <footer>
+        <div class="container">
+            <p>© 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
         </div>
-        <div class="p-6 bg-white rounded shadow">
-          <h4 class="text-xl font-semibold mb-2">VMs & Container Deployment</h4>
-          <p>Deploy and manage virtual machines or containers securely on the cloud.</p>
-        </div>
-        <div class="p-6 bg-white rounded shadow">
-          <h4 class="text-xl font-semibold mb-2">Compliance & Regulation</h4>
-          <p>Ensure POPIA, GDPR and other regulatory compliance with our expert audits and tools.</p>
-        </div>
-        <div class="p-6 bg-white rounded shadow">
-          <h4 class="text-xl font-semibold mb-2">Security Solutions</h4>
-          <p>Protect your applications and network with advanced security tools and monitoring.</p>
-        </div>
-        <div class="p-6 bg-white rounded shadow">
-          <h4 class="text-xl font-semibold mb-2">Data Mining & Processing</h4>
-          <p>Transform your data into insights using cloud-based mining, storage, and dashboards.</p>
-        </div>
-        <div class="p-6 bg-white rounded shadow">
-          <h4 class="text-xl font-semibold mb-2">VM Access for Schools</h4>
-          <p>Provide high-performance virtual desktops to schools using legacy computers at low cost.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="bg-gray-100 py-16">
-    <div class="container mx-auto max-w-3xl text-center">
-      <h3 class="text-3xl font-bold mb-6">About Seraphis</h3>
-      <p>We are a mission-driven IT firm helping African businesses and institutions modernize through secure cloud services. We believe in efficiency, affordability, and sustainability in tech.</p>
-    </div>
-  </section>
-
-  <section id="contact" class="py-16">
-    <div class="container mx-auto max-w-2xl">
-      <h3 class="text-3xl font-bold text-center mb-6">Get in Touch</h3>
-      <form class="space-y-4">
-        <input type="text" placeholder="Name" class="w-full p-3 border border-gray-300 rounded">
-        <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded">
-        <textarea placeholder="Your message" class="w-full p-3 border border-gray-300 rounded"></textarea>
-        <button type="submit" class="bg-blue-700 text-white px-6 py-3 rounded hover:bg-blue-800">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="bg-blue-900 text-white py-6 text-center">
-    <p>&copy; 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
-  </footer>
+    </footer>
 </body>
 </html>
