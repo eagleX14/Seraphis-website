@@ -91,23 +91,14 @@
             text-align: left;
         }
 
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        input, textarea {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-
         footer {
             background-color: #333;
             padding: 20px 0;
+        }
+
+        iframe {
+            border: none;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -190,13 +181,10 @@
         <div class="container">
             <h2>Contact Us</h2>
             <p>Have a question or want to know more about our services? Fill out the form below and we’ll get back to you shortly.</p>
-            <form action="https://formspree.io/f/mvgaanvp" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="phone" placeholder="Your Contact Number">
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit" class="button">Submit</button>
-            </form>
+
+            <!-- Google Form Embed -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezuIHKxwA26jR0mZ8FlHx9BHjrkISu_oOCC1vysJjNX4Ieaw/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
         </div>
     </section>
 
