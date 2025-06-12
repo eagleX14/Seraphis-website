@@ -1,304 +1,207 @@
-├── index.html
-├── services.html
-├── packages.html
-├── contact.html
-├── css/
-│   └── style.css
-└── js/
-    └── common.js
-
-
-==========================
-File: css/style.css
-==========================
-/* Shared styles moved from index.html */
-body {
-    background-color: #1f1f1f;
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-.container {
-    padding: 50px;
-}
-
-h1, h2 {
-    color: #f1c40f;
-    animation: fadeIn 2s ease-out;
-}
-
-.button {
-    background-color: #f1c40f;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    transition: transform 0.3s ease;
-    border: 2px solid #f1c40f;
-    margin-top: 20px;
-    display: inline-block;
-}
-
-.button:hover {
-    transform: scale(1.1);
-    background-color: #e1b20f;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-nav {
-    padding: 20px;
-    background-color: #111;
-}
-
-nav a {
-    margin: 0 10px;
-}
-
-.packages {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.package {
-    background-color: #2a2a2a;
-    color: #fff;
-    padding: 30px;
-    margin: 10px;
-    border-radius: 10px;
-    flex: 1;
-    max-width: 300px;
-    transition: transform 0.3s ease;
-}
-
-.package:hover {
-    transform: scale(1.05);
-}
-
-.package h3 {
-    color: #f1c40f;
-}
-
-.package p, .package ul {
-    font-size: 16px;
-    text-align: left;
-}
-
-form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-input, textarea {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-footer {
-    background-color: #333;
-    padding: 20px 0;
-}
-
-
-==========================
-File: index.html
-==========================
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seraphis IT and Data Solutions</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraphis IT and Data Solutions</title>
+    <style>
+        body {
+            background-color: #1f1f1f;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1, h2 {
+            color: #f1c40f;
+        }
+
+        .button {
+            background-color: #f1c40f;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+            border: 2px solid #f1c40f;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #e1b20f;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1, h2 {
+            animation: fadeIn 2s ease-out;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .packages {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .package {
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 30px;
+            margin: 10px;
+            border-radius: 10px;
+            flex: 1;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .package:hover {
+            transform: scale(1.05);
+        }
+
+        .package h3 {
+            color: #f1c40f;
+        }
+
+        .package p, .package ul {
+            font-size: 16px;
+            text-align: left;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html" class="button">Home</a>
-    <a href="services.html" class="button">Services</a>
-    <a href="packages.html" class="button">Packages</a>
-    <a href="contact.html" class="button">Contact</a>
-  </nav>
-  <header>
-    <div class="container">
-      <h1>Welcome to Seraphis IT and Data Solutions</h1>
-      <h2>Your Trusted Partner in IT Services</h2>
-      <p>We specialize in web hosting, VM/container management, security solutions, compliance, and data services tailored for small to medium businesses.</p>
-      <a href="services.html" class="button">Explore Our Services</a>
-      <a href="packages.html" class="button">View Our Packages</a>
-      <a href="contact.html" class="button">Contact Us</a>
-    </div>
-  </header>
-  <footer>
-    <p>&copy; 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+    <header>
+        <div class="container">
+            <h1>Welcome to Seraphis IT and Data Solutions</h1>
+            <h2>Your Trusted Partner in IT Services</h2>
+            <p>We specialize in web hosting, VM/container management, security solutions, compliance, and data services tailored for small to medium businesses.</p>
+            <a href="#services" class="button">Explore Our Services</a>
+            <a href="#packages" class="button">View Our Packages</a>
+            <a href="#contact" class="button">Contact Us</a>
+        </div>
+    </header>
 
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <ul>
+                <li><strong>Cybersecurity SOC Analysts Services</strong>: 24/7 Monitoring, Incident Response, Threat Detection, Vulnerability Management.</li>
+                <li><strong>Compliance Insurance Solutions</strong>: GDPR, POPIA, PIPL, Risk Assessments, Compliance Reporting.</li>
+                <li><strong>Cloud Computing for Legacy Hardware</strong>: Access modern software using outdated systems via virtual desktops.</li>
+                <li><strong>Network & Web Application Security</strong>: Hardening and securing infrastructure.</li>
+                <li><strong>Data Mining & Processing</strong>: Insights generation and analytics.</li>
+                <li><strong>Certificate Authority</strong>: Compliance-driven digital identity solutions.</li>
+            </ul>
+        </div>
+    </section>
 
-==========================
-File: services.html
-==========================
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services - Seraphis IT</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <nav>
-    <a href="index.html" class="button">Home</a>
-    <a href="services.html" class="button">Services</a>
-    <a href="packages.html" class="button">Packages</a>
-    <a href="contact.html" class="button">Contact</a>
-  </nav>
-  <section id="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <ul>
-        <li><strong>Cybersecurity SOC Analysts Services</strong>: 24/7 Monitoring, Incident Response, Threat Detection, Vulnerability Management.</li>
-        <li><strong>Compliance Insurance Solutions</strong>: GDPR, POPIA, PIPL, Risk Assessments, Compliance Reporting.</li>
-        <li><strong>Cloud Computing for Legacy Hardware</strong>: Access modern software using outdated systems via virtual desktops.</li>
-        <li><strong>Network & Web Application Security</strong>: Hardening and securing infrastructure.</li>
-        <li><strong>Data Mining & Processing</strong>: Insights generation and analytics.</li>
-        <li><strong>Certificate Authority</strong>: Compliance-driven digital identity solutions.</li>
-      </ul>
-    </div>
-  </section>
-  <footer>
-    <p>&copy; 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+    <section id="packages" class="packages">
+        <div class="package">
+            <h3>Small Business Package</h3>
+            <p>Ideal for startups and local businesses needing essential coverage.</p>
+            <ul>
+                <li>Basic SOC Analyst Coverage</li>
+                <li>Compliance Readiness</li>
+                <li>Virtual Machines & Software Hosting</li>
+                <li>Basic Data Processing and Reports</li>
+            </ul>
+            <a href="#contact" class="button">Enquire Now</a>
+        </div>
+        <div class="package">
+            <h3>Medium Business Package</h3>
+            <p>Balanced solution for growing businesses with moderate IT needs.</p>
+            <ul>
+                <li>Advanced Threat Monitoring</li>
+                <li>Full Compliance Insurance (GDPR, POPIA, etc.)</li>
+                <li>Cloud Workstations</li>
+                <li>Network Hardening</li>
+                <li>Data Processing and Analytics Reports</li>
+            </ul>
+            <a href="#contact" class="button">Enquire Now</a>
+        </div>
+        <div class="package">
+            <h3>Enterprise Package</h3>
+            <p>Full-feature solution for large organizations with custom needs.</p>
+            <ul>
+                <li>Dedicated SOC Support</li>
+                <li>Complete Compliance & Legal Coverage</li>
+                <li>Infrastructure Hosting & Support</li>
+                <li>Comprehensive Data Insights and Reports</li>
+                <li>Certificate Authority Integration</li>
+            </ul>
+            <a href="#contact" class="button">Enquire Now</a>
+        </div>
+        <div class="package">
+            <h3>Data Insights Package</h3>
+            <p>Tailored data intelligence for any business size.</p>
+            <ul>
+                <li>Data Mining & Processing</li>
+                <li>Trend and Insight Reporting</li>
+                <li>Business Intelligence Dashboards</li>
+                <li>Support for Strategic Decision-Making</li>
+            </ul>
+            <a href="#contact" class="button">Enquire Now</a>
+        </div>
+    </section>
 
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have a question or want to know more about our services? Fill out the form below and we’ll get back to you shortly.</p>
+            <form action="https://formspree.io/f/mvgaanvp" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="phone" placeholder="Your Contact Number">
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+    </section>
 
-==========================
-File: packages.html
-==========================
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Packages - Seraphis IT</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <nav>
-    <a href="index.html" class="button">Home</a>
-    <a href="services.html" class="button">Services</a>
-    <a href="packages.html" class="button">Packages</a>
-    <a href="contact.html" class="button">Contact</a>
-  </nav>
-  <section id="packages" class="packages">
-    <div class="package">
-      <h3>Small Business Package</h3>
-      <p>Ideal for startups and local businesses needing essential coverage.</p>
-      <ul>
-        <li>Basic SOC Analyst Coverage</li>
-        <li>Compliance Readiness</li>
-        <li>Virtual Machines & Software Hosting</li>
-        <li>Basic Data Processing and Reports</li>
-      </ul>
-      <a href="contact.html" class="button">Enquire Now</a>
-    </div>
-    <div class="package">
-      <h3>Medium Business Package</h3>
-      <p>Balanced solution for growing businesses with moderate IT needs.</p>
-      <ul>
-        <li>Advanced Threat Monitoring</li>
-        <li>Full Compliance Insurance (GDPR, POPIA, etc.)</li>
-        <li>Cloud Workstations</li>
-        <li>Network Hardening</li>
-        <li>Data Processing and Analytics Reports</li>
-      </ul>
-      <a href="contact.html" class="button">Enquire Now</a>
-    </div>
-    <div class="package">
-      <h3>Enterprise Package</h3>
-      <p>Full-feature solution for large organizations with custom needs.</p>
-      <ul>
-        <li>Dedicated SOC Support</li>
-        <li>Complete Compliance & Legal Coverage</li>
-        <li>Infrastructure Hosting & Support</li>
-        <li>Comprehensive Data Insights and Reports</li>
-        <li>Certificate Authority Integration</li>
-      </ul>
-      <a href="contact.html" class="button">Enquire Now</a>
-    </div>
-    <div class="package">
-      <h3>Data Insights Package</h3>
-      <p>Tailored data intelligence for any business size.</p>
-      <ul>
-        <li>Data Mining & Processing</li>
-        <li>Trend and Insight Reporting</li>
-        <li>Business Intelligence Dashboards</li>
-        <li>Support for Strategic Decision-Making</li>
-      </ul>
-      <a href="contact.html" class="button">Enquire Now</a>
-    </div>
-  </section>
-  <footer>
-    <p>&copy; 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
-  </footer>
-</body>
-</html>
-
-
-==========================
-File: contact.html
-==========================
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Seraphis IT</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <nav>
-    <a href="index.html" class="button">Home</a>
-    <a href="services.html" class="button">Services</a>
-    <a href="packages.html" class="button">Packages</a>
-    <a href="contact.html" class="button">Contact</a>
-  </nav>
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <p>Have a question or want to know more about our services? Fill out the form below and we’ll get back to you shortly.</p>
-      <form action="https://formspree.io/f/mvgaanvp" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="text" name="phone" placeholder="Your Contact Number">
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="button">Submit</button>
-      </form>
-    </div>
-  </section>
-  <footer>
-    <p>&copy; 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Seraphis IT and Data Solutions. All rights reserved.</p>
+    </footer>
 </body>
 </html>
