@@ -218,6 +218,26 @@
       color: #555;
       font-size: 1rem;
       line-height: 1.3;
+      margin-bottom: 1.2rem;
+    }
+    .solution-card button.details-btn {
+      background: #0b3d91;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .solution-card button.details-btn:hover,
+    .solution-card button.details-btn:focus {
+      background: #003a6f;
+      outline: none;
     }
 
     /* About Us */
@@ -341,6 +361,85 @@
         font-size: 1.1rem;
       }
     }
+
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.3s ease forwards;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .modal-content {
+      background: white;
+      max-width: 700px;
+      width: 100%;
+      border-radius: 8px;
+      padding: 2rem 2.5rem 2.5rem;
+      position: relative;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.25);
+      animation: slideDown 0.3s ease forwards;
+    }
+    @keyframes slideDown {
+      from {transform: translateY(-30px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #0b3d91;
+      font-weight: 700;
+      line-height: 1;
+      padding: 0;
+      transition: color 0.3s ease;
+    }
+    .modal-close:hover,
+    .modal-close:focus {
+      color: #ffa500;
+      outline: none;
+    }
+    .modal-content h3 {
+      margin-top: 0;
+      color: #0b3d91;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .modal-content p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .modal-content ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .modal-content ul li {
+      margin-bottom: 0.5rem;
+    }
+
   </style>
 </head>
 <body>
@@ -400,26 +499,31 @@
           <div class="solution-icon" aria-hidden="true">📊</div>
           <h3>Data Analytics</h3>
           <p>Transform your data into actionable insights to drive better business decisions.</p>
+          <button class="details-btn" data-modal="modal-data-analytics" aria-haspopup="dialog" aria-controls="modal-data-analytics">Learn More</button>
         </article>
         <article class="solution-card" aria-label="Application Development solution">
           <div class="solution-icon" aria-hidden="true">💻</div>
           <h3>Application Development</h3>
           <p>Custom software solutions tailored to your business needs and goals.</p>
+          <button class="details-btn" data-modal="modal-app-dev" aria-haspopup="dialog" aria-controls="modal-app-dev">Learn More</button>
         </article>
         <article class="solution-card" aria-label="Managed IT Services solution">
           <div class="solution-icon" aria-hidden="true">🛠️</div>
           <h3>Managed IT Services</h3>
           <p>Proactive IT management and support to keep your operations running smoothly.</p>
+          <button class="details-btn" data-modal="modal-managed-it" aria-haspopup="dialog" aria-controls="modal-managed-it">Learn More</button>
         </article>
         <article class="solution-card" aria-label="Cybersecurity solution">
           <div class="solution-icon" aria-hidden="true">🛡️</div>
           <h3>Cybersecurity</h3>
           <p>Protect your business with comprehensive security strategies and solutions.</p>
+          <button class="details-btn" data-modal="modal-cybersecurity" aria-haspopup="dialog" aria-controls="modal-cybersecurity">Learn More</button>
         </article>
         <article class="solution-card" aria-label="Compliance solution">
           <div class="solution-icon" aria-hidden="true">📜</div>
           <h3>Compliance</h3>
           <p>Ensure your business meets industry regulations and standards effortlessly.</p>
+          <button class="details-btn" data-modal="modal-compliance" aria-haspopup="dialog" aria-controls="modal-compliance">Learn More</button>
         </article>
       </div>
     </section>
@@ -475,6 +579,92 @@
     <a href="https://twitter.com/seraphis" target="_blank" rel="noopener">Twitter</a> | 
     <a href="mailto:info@seraphisit.com">Email Us</a>
   </footer>
+
+  <!-- Modals for extended details -->
+  <div class="modal-overlay" id="modal-data-analytics" role="dialog" aria-modal="true" aria-labelledby="modal-data-analytics-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Data Analytics details">&times;</button>
+      <h3 id="modal-data-analytics-title">Data Analytics</h3>
+      <p>At Seraphis IT and Data Solutions, our Data Analytics services empower your business by harnessing the full potential of your data.</p>
+      <p>We provide:</p>
+      <ul>
+        <li>Comprehensive data collection and integration from diverse sources.</li>
+        <li>Advanced analytics techniques including predictive modeling and AI.</li>
+        <li>Custom dashboards and visualization tailored to your KPIs.</li>
+        <li>Consulting to identify data-driven growth opportunities.</li>
+        <li>Ongoing support and optimization to keep your insights current.</li>
+      </ul>
+      <p>Our solutions enable smarter decision-making and a competitive edge in your industry.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-app-dev" role="dialog" aria-modal="true" aria-labelledby="modal-app-dev-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Application Development details">&times;</button>
+      <h3 id="modal-app-dev-title">Application Development</h3>
+      <p>We specialize in building custom software applications designed to fit your unique business processes and goals.</p>
+      <p>Our Application Development offerings include:</p>
+      <ul>
+        <li>End-to-end development lifecycle management.</li>
+        <li>Cross-platform mobile and web app development.</li>
+        <li>Integration with existing systems and APIs.</li>
+        <li>Agile methodology for flexibility and rapid iteration.</li>
+        <li>User-focused design for optimal experience.</li>
+      </ul>
+      <p>Partner with us to bring your digital visions to life efficiently and reliably.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-managed-it" role="dialog" aria-modal="true" aria-labelledby="modal-managed-it-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Managed IT Services details">&times;</button>
+      <h3 id="modal-managed-it-title">Managed IT Services</h3>
+      <p>Our Managed IT Services provide proactive monitoring, maintenance, and support to ensure your IT infrastructure runs smoothly and securely.</p>
+      <p>Key features include:</p>
+      <ul>
+        <li>24/7 network and system monitoring.</li>
+        <li>Regular security updates and patch management.</li>
+        <li>Helpdesk support with rapid response times.</li>
+        <li>Cloud services management and optimization.</li>
+        <li>Disaster recovery planning and backup solutions.</li>
+      </ul>
+      <p>Let us handle your IT operations so you can focus on growing your business.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-cybersecurity" role="dialog" aria-modal="true" aria-labelledby="modal-cybersecurity-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Cybersecurity details">&times;</button>
+      <h3 id="modal-cybersecurity-title">Cybersecurity</h3>
+      <p>Protect your organization from evolving cyber threats with our comprehensive cybersecurity services.</p>
+      <p>Our cybersecurity solutions cover:</p>
+      <ul>
+        <li>Risk assessments and vulnerability scanning.</li>
+        <li>Endpoint protection and firewall management.</li>
+        <li>Security awareness training for your staff.</li>
+        <li>Incident response and threat mitigation.</li>
+        <li>Compliance with industry security standards.</li>
+      </ul>
+      <p>We help you build a resilient security posture that safeguards your critical assets.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-compliance" role="dialog" aria-modal="true" aria-labelledby="modal-compliance-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Compliance details">&times;</button>
+      <h3 id="modal-compliance-title">Compliance</h3>
+      <p>Stay ahead of regulatory requirements and industry standards with our compliance consulting and solutions.</p>
+      <p>Our services include:</p>
+      <ul>
+        <li>Gap analysis and compliance audits.</li>
+        <li>Policy development and documentation.</li>
+        <li>Implementation of technical controls and safeguards.</li>
+        <li>Continuous monitoring and reporting.</li>
+        <li>Support for GDPR, HIPAA, PCI-DSS, and other standards.</li>
+      </ul>
+      <p>We help you reduce risk and maintain trust with your customers and partners.</p>
+    </div>
+  </div>
 
   <script>
     // Navigation active link highlight on scroll
@@ -549,6 +739,92 @@
       // Simple email regex
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email.toLowerCase());
+    }
+
+    // Modal functionality
+    const modalButtons = document.querySelectorAll('.details-btn');
+    const modals = document.querySelectorAll('.modal-overlay');
+    let lastFocusedElement;
+
+    modalButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modalId = button.getAttribute('data-modal');
+        openModal(modalId, button);
+      });
+    });
+
+    modals.forEach(modal => {
+      const closeBtn = modal.querySelector('.modal-close');
+      closeBtn.addEventListener('click', () => closeModal(modal));
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal(modal);
+        }
+      });
+    });
+
+    function openModal(id, triggerButton) {
+      lastFocusedElement = triggerButton;
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      trapFocus(modal);
+      // Move focus to modal content heading for screen readers
+      const heading = modal.querySelector('h3');
+      if (heading) heading.focus();
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      releaseFocusTrap();
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    // Focus trap inside modal
+    let focusTrapElement = null;
+    function trapFocus(element) {
+      focusTrapElement = element;
+      const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+      const focusableElements = element.querySelectorAll(focusableElementsString);
+      if (focusableElements.length === 0) return;
+
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length -1];
+
+      function handleTrap(e) {
+        if (e.key === 'Tab') {
+          if (e.shiftKey) { // shift + tab
+            if (document.activeElement === firstFocusable) {
+              e.preventDefault();
+              lastFocusable.focus();
+            }
+          } else { // tab
+            if (document.activeElement === lastFocusable) {
+              e.preventDefault();
+              firstFocusable.focus();
+            }
+          }
+        }
+        if (e.key === 'Escape') {
+          closeModal(focusTrapElement);
+        }
+      }
+
+      element.addEventListener('keydown', handleTrap);
+      element._handleTrap = handleTrap;
+
+      // Focus first element inside modal
+      firstFocusable.focus();
+    }
+
+    function releaseFocusTrap() {
+      if (!focusTrapElement) return;
+      focusTrapElement.removeEventListener('keydown', focusTrapElement._handleTrap);
+      focusTrapElement = null;
     }
   </script>
 </body>
