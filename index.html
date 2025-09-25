@@ -1,205 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seraphis IT & Data Solutions</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
-<style>
-/* Hero animated background */
-.hero-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1650&q=80') center/cover no-repeat;
-  opacity: 0.7;
-  z-index: -1.5;
-}
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%, transparent);
-  background-size: 50px 50px;
-  animation: moveGrid 20s linear infinite;
-  opacity: 0.3;
-  z-index: -1;
-}
-@keyframes moveGrid {
-  from { background-position: 0 0; }
-  to { background-position: 1000px 1000px; }
-}
-.overlay {
-  background-color: rgba(255,255,255,0.85);
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seraphis IT and Data Solutions</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      scroll-behavior: smooth;
+      background: #f7f9fc;
+    }
+    a {
+      color: #0078d7;
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    /* Header / Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #0b3d91;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: default;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus,
+    nav a.active {
+      border-bottom: 2px solid #ffa500;
+      outline: none;
+    }
+
+    /* Main container */
+    main {
+      padding-top: 72px; /* header height + spacing */
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Section styling */
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid #ddd;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+      margin-bottom: 3rem;
+    }
+    section:last-of-type {
+      margin-bottom: 4rem;
+      border-bottom: none;
+      box-shadow: none;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0b3d91;
+      border-left: 6px solid #ffa500;
+      padding-left: 0.5rem;
+    }
+    section p {
+      max-width: 650px;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    /* Hero */
+    #home {
+      background: linear-gradient(135deg, #0b3d91 0%, #005bbb 100%);
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem 8rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+    }
+    #home h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    #home p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    #home .btn-primary {
+      font-size: 1.1rem;
+      background: #ffa500;
+      color: #0b3d91;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 4px 6px rgb(255 165 0 / 0.5);
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    #home .btn-primary:hover,
+    #home .btn-primary:focus {
+      background: #e59400;
+      outline: none;
+      box-shadow: 0 6px 10px rgb(229 148 0 / 0.6);
+    }
+
+    /* Industries grid */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .industry-card {
+      background: #fefefe;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .industry-card:hover {
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+    }
+    .industry-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #0b3d91;
+    }
+    .industry-card h3 {
+      margin: 0.5rem 0;
+      font-weight: 700;
+      color: #0b3d91;
+    }
+    .industry-card p {
+      font-size: 1rem;
+      color: #555;
+      margin: 0;
+    }
+
+    /* Solutions cards */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .solution-card {
+      background: #fefefe;
+      border-radius: 10px;
+      padding: 1.8rem 1.5rem 2rem;
+      box-shadow: 0 3px 9px rgb(0 0 0 / 0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .solution-card:hover {
+      box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+      transform: translateY(-5px);
+    }
+    .solution-icon {
+      font-size: 4rem;
+      color: #ffa500;
+      margin-bottom: 1rem;
+    }
+    .solution-card h3 {
+      margin-bottom: 0.6rem;
+      color: #0b3d91;
+      font-weight: 800;
+    }
+    .solution-card p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+
+    /* About Us */
+    #about p {
+      max-width: 700px;
+      margin-bottom: 1rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .team-member {
+      background: #fefefe;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+      text-align: center;
+    }
+    .team-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      border: 3px solid #ffa500;
+    }
+    .team-member h4 {
+      margin: 0.5rem 0 0.25rem;
+      color: #0b3d91;
+    }
+    .team-member p {
+      font-size: 0.95rem;
+      color: #666;
+      margin: 0;
+    }
+
+    /* Contact form */
+    form {
+      max-width: 500px;
+      margin-top: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #0b3d91;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1.5px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      border-color: #ffa500;
+      outline: none;
+    }
+    button[type="submit"] {
+      background: #0b3d91;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      background: #003a6f;
+      outline: none;
+    }
+    .form-message {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    .form-message.success {
+      color: green;
+    }
+    .form-message.error {
+      color: red;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #0b3d91;
+      color: white;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer a {
+      color: #ffa500;
+      margin: 0 0.5rem;
+      font-weight: 700;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        padding: 0.5rem 1rem;
+      }
+      nav {
+        margin-top: 0.5rem;
+        gap: 1rem;
+      }
+      #home h1 {
+        font-size: 2.2rem;
+      }
+      #home p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans tracking-wide">
-
-<!-- Header -->
-<header class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white shadow sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center py-4 px-6">
-    <h1 class="text-2xl font-extrabold tracking-tight">Seraphis IT & Data Solutions</h1>
-    <nav class="space-x-6 hidden md:flex">
-      <a href="#services" class="hover:text-gray-200 transition">Services</a>
-      <a href="#industries" class="hover:text-gray-200 transition">Industries</a>
-      <a href="#pricing" class="hover:text-gray-200 transition">Pricing</a>
-      <a href="#contact" class="hover:text-gray-200 transition">Contact</a>
+<body>
+  <header>
+    <h1>Seraphis IT &amp; Data Solutions</h1>
+    <nav aria-label="Primary">
+      <a href="#home" class="active">Home</a>
+      <a href="#industries">Industries</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<!-- Hero -->
-<section class="relative hero-bg text-white py-32 text-center overflow-hidden">
-  <div class="relative z-10" data-aos="fade-up">
-    <h2 class="text-5xl font-extrabold mb-4 animate-pulse">Your Trusted Azure MSP Partner</h2>
-    <p class="mb-8 text-lg opacity-90">Providing secure, scalable Microsoft cloud solutions and IT services tailored to your business.</p>
-    <a href="#contact" class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transform transition">Get Started</a>
-  </div>
-</section>
+  <main>
+    <section id="home" tabindex="-1" aria-label="Home section">
+      <h1>Empowering Your Business with Innovative IT Solutions</h1>
+      <p>Your trusted MSP and ISV partner for Data Analytics, Managed IT, Cybersecurity, and Compliance.</p>
+      <a href="#contact" class="btn-primary" role="button">Get in Touch</a>
+    </section>
 
-<!-- Services -->
-<section id="services" class="py-20 container mx-auto px-6 overlay rounded-xl p-10 mt-10">
-  <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Core Services</h3>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in">
-      <i data-lucide="cloud-upload" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Cloud Migration</h4>
-      <p>Seamless transition to Microsoft Azure with minimal downtime, full support, and planning.</p>
-    </div>
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="100">
-      <i data-lucide="shield-check" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Managed Security</h4>
-      <p>Comprehensive security, compliance, and identity protection for your cloud and IT environment.</p>
-    </div>
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="200">
-      <i data-lucide="database" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Data & Backup</h4>
-      <p>Ensure data integrity with Azure backup, disaster recovery, and business continuity solutions.</p>
-    </div>
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="300">
-      <i data-lucide="smartphone" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Software Development</h4>
-      <p>Custom software and applications tailored for various industries to drive efficiency and innovation.</p>
-    </div>
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="400">
-      <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Analytics & Insights</h4>
-      <p>Transform your business data into actionable insights for smarter decisions and performance tracking.</p>
-    </div>
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="500">
-      <i data-lucide="users" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">IT Consulting</h4>
-      <p>Expert guidance to optimize IT strategy, infrastructure, and operations to support business growth.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Industries -->
-<section id="industries" class="py-20 bg-gray-100">
-  <div class="container mx-auto px-6 overlay rounded-xl p-10">
-    <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Industries We Serve</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="bg-white shadow-xl rounded-xl p-8 text-center hover:shadow-2xl transition" data-aos="zoom-in">
-        <i data-lucide="dollar-sign" class="w-12 h-12 text-blue-800 mb-4"></i>
-        <h4 class="text-2xl font-semibold mb-4 text-blue-800">Accounting & Finance</h4>
-        <p>Secure financial data, remote collaboration, and compliance-ready cloud solutions.</p>
+    <section id="industries" tabindex="-1" aria-label="Industries served">
+      <h2>Industries We Serve</h2>
+      <div class="industries-grid">
+        <article class="industry-card" aria-label="Healthcare Industry">
+          <div class="industry-icon" aria-hidden="true">🏥</div>
+          <h3>Healthcare</h3>
+          <p>Secure and compliant IT solutions tailored for healthcare providers and institutions.</p>
+        </article>
+        <article class="industry-card" aria-label="Finance Industry">
+          <div class="industry-icon" aria-hidden="true">💼</div>
+          <h3>Finance</h3>
+          <p>Robust data analytics and cybersecurity services for banking and financial organizations.</p>
+        </article>
+        <article class="industry-card" aria-label="Retail Industry">
+          <div class="industry-icon" aria-hidden="true">🛒</div>
+          <h3>Retail</h3>
+          <p>Optimizing retail operations with custom applications and managed IT services.</p>
+        </article>
+        <article class="industry-card" aria-label="Manufacturing Industry">
+          <div class="industry-icon" aria-hidden="true">🏭</div>
+          <h3>Manufacturing</h3>
+          <p>Innovative IT infrastructure and analytics to streamline manufacturing processes.</p>
+        </article>
+        <article class="industry-card" aria-label="Education Industry">
+          <div class="industry-icon" aria-hidden="true">🎓</div>
+          <h3>Education</h3>
+          <p>Secure learning environments and data-driven insights for educational institutions.</p>
+        </article>
       </div>
-      <div class="bg-white shadow-xl rounded-xl p-8 text-center hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="100">
-        <i data-lucide="briefcase" class="w-12 h-12 text-blue-800 mb-4"></i>
-        <h4 class="text-2xl font-semibold mb-4 text-blue-800">Legal Services</h4>
-        <p>Confidential document management, client portals, and secure collaboration.</p>
+    </section>
+
+    <section id="solutions" tabindex="-1" aria-label="Solutions offered">
+      <h2>Our Solutions</h2>
+      <div class="solutions-grid">
+        <article class="solution-card" aria-label="Data Analytics solution">
+          <div class="solution-icon" aria-hidden="true">📊</div>
+          <h3>Data Analytics</h3>
+          <p>Transform your data into actionable insights to drive better business decisions.</p>
+        </article>
+        <article class="solution-card" aria-label="Application Development solution">
+          <div class="solution-icon" aria-hidden="true">💻</div>
+          <h3>Application Development</h3>
+          <p>Custom software solutions tailored to your business needs and goals.</p>
+        </article>
+        <article class="solution-card" aria-label="Managed IT Services solution">
+          <div class="solution-icon" aria-hidden="true">🛠️</div>
+          <h3>Managed IT Services</h3>
+          <p>Proactive IT management and support to keep your operations running smoothly.</p>
+        </article>
+        <article class="solution-card" aria-label="Cybersecurity solution">
+          <div class="solution-icon" aria-hidden="true">🛡️</div>
+          <h3>Cybersecurity</h3>
+          <p>Protect your business with comprehensive security strategies and solutions.</p>
+        </article>
+        <article class="solution-card" aria-label="Compliance solution">
+          <div class="solution-icon" aria-hidden="true">📜</div>
+          <h3>Compliance</h3>
+          <p>Ensure your business meets industry regulations and standards effortlessly.</p>
+        </article>
       </div>
-      <div class="bg-white shadow-xl rounded-xl p-8 text-center hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="200">
-        <i data-lucide="home" class="w-12 h-12 text-blue-800 mb-4"></i>
-        <h4 class="text-2xl font-semibold mb-4 text-blue-800">Real Estate</h4>
-        <p>Cloud-enabled CRM, property management systems, and team collaboration tools.</p>
+    </section>
+
+    <section id="about" tabindex="-1" aria-label="About Seraphis IT and Data Solutions">
+      <h2>About Us</h2>
+      <p>Seraphis IT and Data Solutions is a leading Managed Service Provider (MSP) and Independent Software Vendor (ISV) dedicated to delivering innovative technology solutions that empower businesses across multiple industries.</p>
+      <p>Our mission is to provide best-in-class IT services, combining expertise in data analytics, custom application development, cybersecurity, managed IT, and compliance to help organizations thrive in a digital world.</p>
+      <p>Founded by industry veterans, we pride ourselves on our commitment to customer success, innovation, and integrity.</p>
+
+      <h3>Meet Our Team</h3>
+      <div class="team-grid">
+        <div class="team-member" role="group" aria-label="John Doe, CEO">
+          <img src="https://i.pravatar.cc/120?img=5" alt="John Doe CEO" class="team-photo" />
+          <h4>John Doe</h4>
+          <p>Chief Executive Officer</p>
+        </div>
+        <div class="team-member" role="group" aria-label="Jane Smith, CTO">
+          <img src="https://i.pravatar.cc/120?img=3" alt="Jane Smith CTO" class="team-photo" />
+          <h4>Jane Smith</h4>
+          <p>Chief Technology Officer</p>
+        </div>
+        <div class="team-member" role="group" aria-label="Michael Lee, Head of Cybersecurity">
+          <img src="https://i.pravatar.cc/120?img=7" alt="Michael Lee Head of Cybersecurity" class="team-photo" />
+          <h4>Michael Lee</h4>
+          <p>Head of Cybersecurity</p>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <section id="contact" tabindex="-1" aria-label="Contact Seraphis IT and Data Solutions">
+      <h2>Contact Us</h2>
+      <p>Have questions or want to discuss your IT needs? Reach out to us!</p>
+      <form id="contactForm" novalidate>
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name" />
 
-<!-- Detailed Services -->
-<section id="services-details" class="py-20 container mx-auto px-6 overlay rounded-xl p-10 mt-10">
-  <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Services in Detail</h3>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-    
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="fade-right">
-      <i data-lucide="cloud-upload" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Cloud Migration</h4>
-      <p>
-        We plan and execute the seamless transition of your business to Microsoft Azure. This includes assessment of your existing infrastructure, migration strategy, and execution with minimal downtime. Our team ensures all applications, data, and workloads are optimized for cloud efficiency, scalability, and security.
-      </p>
-    </div>
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required aria-required="true" placeholder="your.email@example.com" />
 
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="fade-left">
-      <i data-lucide="shield-check" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Managed Security</h4>
-      <p>
-        Seraphis IT provides end-to-end security solutions, protecting your cloud workloads and IT infrastructure. We implement identity and access management, continuous monitoring, threat detection, compliance enforcement, and proactive incident response. Our goal is to keep your business safe from evolving cyber threats.
-      </p>
-    </div>
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Write your message here..."></textarea>
 
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="fade-right">
-      <i data-lucide="database" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Data & Backup</h4>
-      <p>
-        Protecting your critical business data is our priority. We implement Azure Backup, disaster recovery, and business continuity strategies to ensure data integrity. Your information is safely stored, recoverable, and compliant with industry standards, allowing you to maintain operations even in the face of disruptions.
-      </p>
-    </div>
+        <button type="submit">Send Message</button>
+        <div id="formMessage" role="alert" class="form-message" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
 
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="fade-left">
-      <i data-lucide="smartphone" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Software Development</h4>
-      <p>
-        We develop custom software applications tailored to your business needs. Whether it’s web apps, mobile apps, or industry-specific software, we design solutions to streamline processes, improve productivity, and provide a competitive edge. Our agile approach ensures timely delivery and high-quality results.
-      </p>
-    </div>
+  <footer>
+    &copy; 2024 Seraphis IT and Data Solutions | 
+    <a href="https://linkedin.com/company/seraphis" target="_blank" rel="noopener">LinkedIn</a> | 
+    <a href="https://twitter.com/seraphis" target="_blank" rel="noopener">Twitter</a> | 
+    <a href="mailto:info@seraphisit.com">Email Us</a>
+  </footer>
 
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="fade-right">
-      <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">Analytics & Insights</h4>
-      <p>
-        Transform raw data into actionable insights. Our analytics services include business intelligence, reporting, and data visualization. We help you identify trends, track performance, and make informed decisions that drive growth and efficiency across your organization.
-      </p>
-    </div>
+  <script>
+    // Navigation active link highlight on scroll
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('header nav a');
 
-    <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="fade-left">
-      <i data-lucide="users" class="w-12 h-12 text-blue-800 mb-4"></i>
-      <h4 class="text-2xl font-semibold mb-4 text-blue-800">IT Consulting</h4>
-      <p>
-        Our consulting services guide your business to maximize IT efficiency. We assess infrastructure, provide strategic recommendations, design IT roadmaps, and assist in technology implementation. Our goal is to align technology with business objectives, improving performance and reducing costs.
-      </p>
-    </div>
+    function activateNavLinkOnScroll() {
+      let scrollPos = window.scrollY + window.innerHeight / 3;
 
-  </div>
-</section>
+      sections.forEach(section => {
+        if (
+          scrollPos >= section.offsetTop &&
+          scrollPos < section.offsetTop + section.offsetHeight
+        ) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + section.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
 
-<!-- Contact -->
-<section id="contact" class="py-20 bg-gradient-to-r from-blue-900 to-indigo-800 text-white">
-  <div class="container mx-auto px-6">
-    <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Get in Touch</h3>
-    <form class="max-w-xl mx-auto bg-white text-gray-800 p-8 rounded-xl shadow-lg space-y-4" data-aos="fade-up" data-aos-delay="100">
-      <input type="text" placeholder="Name" class="w-full p-3 border rounded focus:ring-2 focus:ring-blue-700">
-      <input type="email" placeholder="Email" class="w-full p-3 border rounded focus:ring-2 focus:ring-blue-700">
-      <textarea placeholder="Message" class="w-full p-3 border rounded focus:ring-2 focus:ring-blue-700"></textarea>
-      <button type="submit" class="w-full bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition">Send</button>
-    </form>
-  </div>
-</section>
+    window.addEventListener('scroll', activateNavLinkOnScroll);
+    activateNavLinkOnScroll();
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-gray-300 text-center py-6">
-  <p>&copy; 2025 Seraphis IT & Data Solutions. All Rights Reserved.</p>
-</footer>
+    // Contact form validation and submission simulation
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init({ duration: 1000, once: true });
-lucide.createIcons();
-</script>
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      formMessage.textContent = '';
+      formMessage.className = 'form-message';
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name) {
+        formMessage.textContent = 'Please enter your name.';
+        formMessage.classList.add('error');
+        form.name.focus();
+        return;
+      }
+      if (!email || !validateEmail(email)) {
+        formMessage.textContent = 'Please enter a valid email address.';
+        formMessage.classList.add('error');
+        form.email.focus();
+        return;
+      }
+      if (!message) {
+        formMessage.textContent = 'Please enter your message.';
+        formMessage.classList.add('error');
+        form.message.focus();
+        return;
+      }
+
+      // Simulate form submission (replace with real API call)
+      formMessage.textContent = 'Sending message...';
+      setTimeout(() => {
+        formMessage.textContent = 'Thank you for contacting Seraphis IT and Data Solutions! We will get back to you shortly.';
+        formMessage.classList.remove('error');
+        formMessage.classList.add('success');
+        form.reset();
+      }, 1500);
+    });
+
+    function validateEmail(email) {
+      // Simple email regex
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email.toLowerCase());
+    }
+  </script>
 </body>
 </html>
