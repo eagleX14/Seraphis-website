@@ -7,8 +7,48 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Particle-like animated background for hero */
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1612831816582-228832c9df2b?auto=format&fit=crop&w=1650&q=80') center/cover no-repeat;
+      opacity: 0.2;
+      z-index: -2;
+    }
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%, transparent);
+      background-size: 50px 50px;
+      animation: moveGrid 20s linear infinite;
+      opacity: 0.3;
+      z-index: -1;
+    }
+    @keyframes moveGrid {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+    /* Techy backgrounds for other sections */
+    .services-bg {
+      background: url('https://images.unsplash.com/photo-1581091012184-4b96d5f2d7f7?auto=format&fit=crop&w=1650&q=80') center/cover no-repeat;
+    }
+    .industries-bg {
+      background: url('https://images.unsplash.com/photo-1612831666212-dc1b28f27f44?auto=format&fit=crop&w=1650&q=80') center/cover no-repeat;
+    }
+    .pricing-bg {
+      background: url('https://images.unsplash.com/photo-1602526218033-4b59832f0ed0?auto=format&fit=crop&w=1650&q=80') center/cover no-repeat;
+    }
+    /* Overlay for readability */
+    .overlay {
+      background-color: rgba(255,255,255,0.85);
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans tracking-wide">
+
   <!-- Header -->
   <header class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white shadow sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
@@ -23,8 +63,7 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative bg-gradient-to-r from-blue-900 via-indigo-800 to-blue-700 text-white py-32 text-center overflow-hidden">
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+  <section class="relative hero-bg text-white py-32 text-center overflow-hidden">
     <div class="relative z-10" data-aos="fade-up">
       <h2 class="text-5xl font-extrabold mb-4 animate-pulse">Your Trusted Azure MSP Partner</h2>
       <p class="mb-8 text-lg opacity-90">Empowering businesses with secure, scalable Microsoft cloud solutions.</p>
@@ -33,30 +72,32 @@
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-20 container mx-auto px-6">
-    <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Core Services</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in">
-        <i data-lucide="cloud-upload" class="w-12 h-12 text-blue-800 mb-4"></i>
-        <h4 class="font-semibold text-2xl mb-4 text-blue-800">Cloud Migration</h4>
-        <p class="text-gray-600">Seamless transition of your business to Microsoft Azure with minimal downtime.</p>
-      </div>
-      <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="100">
-        <i data-lucide="shield-check" class="w-12 h-12 text-blue-800 mb-4"></i>
-        <h4 class="font-semibold text-2xl mb-4 text-blue-800">Managed Security</h4>
-        <p class="text-gray-600">End-to-end security, compliance, and identity protection for your cloud workloads.</p>
-      </div>
-      <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="200">
-        <i data-lucide="database" class="w-12 h-12 text-blue-800 mb-4"></i>
-        <h4 class="font-semibold text-2xl mb-4 text-blue-800">Data & Backup</h4>
-        <p class="text-gray-600">Ensure data integrity with Azure backup, disaster recovery, and business continuity.</p>
+  <section id="services" class="py-20 services-bg relative">
+    <div class="container mx-auto px-6 overlay rounded-xl p-10">
+      <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Core Services</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in">
+          <i data-lucide="cloud-upload" class="w-12 h-12 text-blue-800 mb-4"></i>
+          <h4 class="font-semibold text-2xl mb-4 text-blue-800">Cloud Migration</h4>
+          <p class="text-gray-600">Seamless transition of your business to Microsoft Azure with minimal downtime.</p>
+        </div>
+        <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="100">
+          <i data-lucide="shield-check" class="w-12 h-12 text-blue-800 mb-4"></i>
+          <h4 class="font-semibold text-2xl mb-4 text-blue-800">Managed Security</h4>
+          <p class="text-gray-600">End-to-end security, compliance, and identity protection for your cloud workloads.</p>
+        </div>
+        <div class="bg-white shadow-xl rounded-xl p-8 hover:shadow-2xl transform hover:-translate-y-2 transition" data-aos="zoom-in" data-aos-delay="200">
+          <i data-lucide="database" class="w-12 h-12 text-blue-800 mb-4"></i>
+          <h4 class="font-semibold text-2xl mb-4 text-blue-800">Data & Backup</h4>
+          <p class="text-gray-600">Ensure data integrity with Azure backup, disaster recovery, and business continuity.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Industries -->
-  <section id="industries" class="bg-gradient-to-r from-gray-50 to-gray-100 py-20">
-    <div class="container mx-auto px-6">
+  <section id="industries" class="py-20 industries-bg relative">
+    <div class="container mx-auto px-6 overlay rounded-xl p-10">
       <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Industries We Serve</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div class="bg-white shadow-lg rounded-xl p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition" data-aos="flip-left">
@@ -77,49 +118,33 @@
           <p class="text-gray-600">Operational efficiency, ERP integration, and secure IoT cloud solutions.</p>
           <a href="industries.html#manufacturing" class="mt-6 inline-block bg-blue-900 text-white px-5 py-2 rounded-full hover:bg-blue-800 transition">Learn More</a>
         </div>
-        <div class="bg-white shadow-lg rounded-xl p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition" data-aos="flip-left" data-aos-delay="300">
-          <i data-lucide="home" class="w-12 h-12 text-blue-900 mb-4"></i>
-          <h4 class="font-semibold text-2xl mb-3 text-blue-900">Real Estate Agencies</h4>
-          <p class="text-gray-600">CRM, property management systems, and collaboration tools in the cloud.</p>
-          <a href="industries.html#real-estate" class="mt-6 inline-block bg-blue-900 text-white px-5 py-2 rounded-full hover:bg-blue-800 transition">Learn More</a>
-        </div>
-        <div class="bg-white shadow-lg rounded-xl p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition" data-aos="flip-left" data-aos-delay="400">
-          <i data-lucide="shopping-bag" class="w-12 h-12 text-blue-900 mb-4"></i>
-          <h4 class="font-semibold text-2xl mb-3 text-blue-900">Retail Businesses</h4>
-          <p class="text-gray-600">POS integration, data analytics, and secure payment processing solutions.</p>
-          <a href="industries.html#retail" class="mt-6 inline-block bg-blue-900 text-white px-5 py-2 rounded-full hover:bg-blue-800 transition">Learn More</a>
-        </div>
-        <div class="bg-white shadow-lg rounded-xl p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition" data-aos="flip-left" data-aos-delay="500">
-          <i data-lucide="stethoscope" class="w-12 h-12 text-blue-900 mb-4"></i>
-          <h4 class="font-semibold text-2xl mb-3 text-blue-900">Health Practices</h4>
-          <p class="text-gray-600">HIPAA-aligned systems, secure telehealth, and patient data protection.</p>
-          <a href="industries.html#health" class="mt-6 inline-block bg-blue-900 text-white px-5 py-2 rounded-full hover:bg-blue-800 transition">Learn More</a>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="py-20 container mx-auto px-6">
-    <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Pricing Packages</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="bg-white shadow-xl rounded-xl p-8 text-center border-t-4 border-blue-800 hover:scale-105 transition" data-aos="fade-up">
-        <i data-lucide="rocket" class="w-12 h-12 text-blue-800 mb-4"></i>
-        <h4 class="font-semibold text-2xl mb-3">Starter</h4>
-        <p class="mb-4 text-blue-700 font-semibold">From $299/month</p>
-        <p class="text-gray-600">Perfect for small businesses starting their Azure journey.</p>
-      </div>
-      <div class="bg-white shadow-xl rounded-xl p-8 text-center border-t-4 border-indigo-800 hover:scale-105 transition" data-aos="fade-up" data-aos-delay="100">
-        <i data-lucide="layers" class="w-12 h-12 text-indigo-800 mb-4"></i>
-        <h4 class="font-semibold text-2xl mb-3">Professional</h4>
-        <p class="mb-4 text-blue-700 font-semibold">From $699/month</p>
-        <p class="text-gray-600">Advanced cloud services, monitoring, and security features.</p>
-      </div>
-      <div class="bg-white shadow-xl rounded-xl p-8 text-center border-t-4 border-purple-800 hover:scale-105 transition" data-aos="fade-up" data-aos-delay="200">
-        <i data-lucide="building-2" class="w-12 h-12 text-purple-800 mb-4"></i>
-        <h4 class="font-semibold text-2xl mb-3">Enterprise</h4>
-        <p class="mb-4 text-blue-700 font-semibold">Custom Pricing</p>
-        <p class="text-gray-600">Tailored Azure MSP solutions for large enterprises.</p>
+  <section id="pricing" class="py-20 pricing-bg relative">
+    <div class="container mx-auto px-6 overlay rounded-xl p-10">
+      <h3 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Pricing Packages</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="bg-white shadow-xl rounded-xl p-8 text-center border-t-4 border-blue-800 hover:scale-105 transition" data-aos="fade-up">
+          <i data-lucide="rocket" class="w-12 h-12 text-blue-800 mb-4"></i>
+          <h4 class="font-semibold text-2xl mb-3">Starter</h4>
+          <p class="mb-4 text-blue-700 font-semibold">From $299/month</p>
+          <p class="text-gray-600">Perfect for small businesses starting their Azure journey.</p>
+        </div>
+        <div class="bg-white shadow-xl rounded-xl p-8 text-center border-t-4 border-indigo-800 hover:scale-105 transition" data-aos="fade-up" data-aos-delay="100">
+          <i data-lucide="layers" class="w-12 h-12 text-indigo-800 mb-4"></i>
+          <h4 class="font-semibold text-2xl mb-3">Professional</h4>
+          <p class="mb-4 text-blue-700 font-semibold">From $699/month</p>
+          <p class="text-gray-600">Advanced cloud services, monitoring, and security features.</p>
+        </div>
+        <div class="bg-white shadow-xl rounded-xl p-8 text-center border-t-4 border-purple-800 hover:scale-105 transition" data-aos="fade-up" data-aos-delay="200">
+          <i data-lucide="building-2" class="w-12 h-12 text-purple-800 mb-4"></i>
+          <h4 class="font-semibold text-2xl mb-3">Enterprise</h4>
+          <p class="mb-4 text-blue-700 font-semibold">Custom Pricing</p>
+          <p class="text-gray-600">Tailored Azure MSP solutions for large enterprises.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -138,16 +163,15 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 text-center py-6">
-    <p>&copy; 2025 Seraphis IT & Data Solutions. All Rights Reserved.</p>
+  <footer class="bg-gray-900 text-gray-300 text-center py-6 relative" style="background-image: url('https://images.unsplash.com/photo-1602526218033-4b59832f0ed0?auto=format&fit=crop&w=1650&q=80'); background-size: cover; background-position: center;">
+    <div class="bg-black bg-opacity-60 py-6">
+      <p>&copy; 2025 Seraphis IT & Data Solutions. All Rights Reserved.</p>
+    </div>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    AOS.init({ duration: 1000, once: true });
     lucide.createIcons();
   </script>
 </body>
