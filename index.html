@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seraphis IT and Data Solutions - Luxury Dark Theme</title>
+  <title>Seraphis IT and Data Solutions - Grounded Luxury Theme</title>
   <style>
     /* Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600&display=swap');
@@ -16,20 +16,20 @@
       margin: 0;
       font-family: 'Open Sans', Arial, sans-serif;
       line-height: 1.6;
-      color: #f5f2e7;
-      background: #0a0e23;
+      color: #e0dcca;
+      background: #1e1e28;
       scroll-behavior: smooth;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
     a {
-      color: #d4af37;
+      color: #bfa24a;
       text-decoration: none;
       transition: color 0.3s ease;
     }
     a:hover, a:focus {
-      color: #f9d976;
+      color: #d4b85a;
       text-decoration: underline;
       outline: none;
     }
@@ -40,31 +40,31 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(10, 14, 35, 0.95);
-      color: #d4af37;
+      background: rgba(30, 30, 40, 0.95);
+      color: #bfa24a;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2.5rem;
       z-index: 1100;
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-      backdrop-filter: saturate(150%) blur(12px);
+      box-shadow: 0 0 16px rgba(191, 162, 74, 0.25);
+      backdrop-filter: saturate(140%) blur(10px);
       user-select: none;
       font-weight: 600;
-      letter-spacing: 1.1px;
+      letter-spacing: 1.05px;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 1.7rem;
       margin: 0;
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       cursor: default;
-      text-shadow: 0 0 8px #d4af37aa;
+      text-shadow: 0 0 3px #bfa24d88;
     }
     nav {
       display: flex;
-      gap: 2rem;
+      gap: 1.8rem;
     }
     nav a {
       font-weight: 600;
@@ -73,16 +73,16 @@
       border-bottom: 2px solid transparent;
       transition: border-color 0.3s ease, color 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      text-shadow: 0 0 4px #0008;
+      letter-spacing: 1.3px;
+      text-shadow: 0 0 2px #0008;
     }
     nav a:hover,
     nav a:focus,
     nav a.active {
-      border-bottom: 2px solid #d4af37;
-      color: #f9d976;
+      border-bottom: 2px solid #bfa24a;
+      color: #d4b85a;
       outline: none;
-      text-shadow: 0 0 12px #f9d976cc;
+      text-shadow: 0 0 6px #d4b85aaa;
     }
 
     /* Main container */
@@ -103,14 +103,17 @@
       border-radius: 14px;
       overflow: hidden;
       box-shadow:
-        inset 0 0 60px #000a,
-        0 8px 30px rgba(0,0,0,0.7);
-      background-color: rgba(10, 14, 35, 0.8);
-      backdrop-filter: saturate(180%) blur(15px);
-      color: #f5f2e7;
+        inset 0 0 25px #0008,
+        0 6px 20px rgba(0,0,0,0.7);
+      background-color: rgba(30, 30, 40, 0.85);
+      backdrop-filter: saturate(140%) blur(10px);
+      color: #e0dcca;
       transition: transform 0.6s cubic-bezier(.21,.61,.35,1), opacity 0.8s ease;
       opacity: 0;
       transform: translateY(40px);
+      background-image:
+        radial-gradient(circle at top left, rgba(191,162,74,0.07), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(191,162,74,0.05), transparent 70%);
     }
     section.visible {
       opacity: 1;
@@ -118,20 +121,20 @@
     }
     section h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       margin-bottom: 1.2rem;
-      color: #d4af37;
-      border-left: 6px solid #d4af37;
+      color: #bfa24a;
+      border-left: 5px solid #bfa24a;
       padding-left: 0.8rem;
-      text-shadow: 0 0 7px #f9d976aa;
+      text-shadow: 0 0 4px #d4b85aaa;
     }
     section p {
       max-width: 700px;
-      font-size: 1.2rem;
-      color: #e6dfcc;
+      font-size: 1.15rem;
+      color: #d4cfa5;
       line-height: 1.55;
       margin-bottom: 1rem;
-      text-shadow: 0 0 5px #0009;
+      text-shadow: 0 0 3px #000a;
     }
 
     /* Hero */
@@ -140,72 +143,72 @@
       text-align: center;
       padding: 8rem 1rem 10rem;
       border-radius: 20px;
-      color: #f9d976;
+      color: #d4b85a;
       text-shadow:
-        0 0 15px #d4af37cc,
-        0 0 40px #f9d976bb;
+        0 0 10px #bfa24dcc,
+        0 0 25px #d4b85aa8;
       background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-      box-shadow: inset 0 0 80px rgba(0,0,0,0.7);
+      box-shadow: inset 0 0 60px rgba(0,0,0,0.75);
       overflow: hidden;
     }
     #home::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(135deg, #0a0e23cc 0%, #d4af3733 100%);
+      background: linear-gradient(135deg, #1e1e28cc 0%, #bfa24a33 100%);
       z-index: 0;
     }
     #home h1 {
       position: relative;
       font-family: 'Playfair Display', serif;
-      font-size: 4rem;
+      font-size: 3.8rem;
       font-weight: 900;
       margin-bottom: 0.7rem;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       z-index: 1;
     }
     #home p {
       position: relative;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 600;
       max-width: 700px;
       margin: 0 auto 2.5rem;
       line-height: 1.3;
       z-index: 1;
-      text-shadow: 0 0 14px #f9d976cc;
+      text-shadow: 0 0 10px #d4b85aaa;
     }
     #home .btn-primary {
       position: relative;
       font-size: 1.3rem;
-      background: linear-gradient(45deg, #d4af37, #f9d976);
-      color: #0a0e23;
+      background: linear-gradient(135deg, #bfa24a, #d4b85a);
+      color: #1e1e28;
       padding: 1rem 3rem;
       border: none;
       border-radius: 9999px;
       cursor: pointer;
       font-weight: 900;
       box-shadow:
-        0 0 12px #f9d976cc,
-        0 4px 15px #d4af37bb;
+        0 0 8px #d4b85aaa,
+        0 3px 9px #bfa24aaa;
       transition: background-position 0.4s ease, box-shadow 0.4s ease;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
       text-decoration: none;
       z-index: 1;
       user-select: none;
       background-size: 200% 200%;
       background-position: left center;
       display: inline-block;
-      filter: drop-shadow(0 0 3px #d4af37aa);
+      filter: drop-shadow(0 0 2px #bfa24aaa);
     }
     #home .btn-primary:hover,
     #home .btn-primary:focus {
       background-position: right center;
       outline: none;
       box-shadow:
-        0 0 22px #ffd54fcc,
-        0 6px 20px #f9d976ee;
-      filter: drop-shadow(0 0 8px #f9d976dd);
+        0 0 18px #d4b85acc,
+        0 6px 18px #bfa24acc;
+      filter: drop-shadow(0 0 6px #d4b85add);
     }
 
     /* Industries grid */
@@ -216,30 +219,30 @@
       margin-top: 2.5rem;
     }
     .industry-card {
-      background: rgba(212, 175, 55, 0.05);
+      background: rgba(191, 162, 74, 0.07);
       border-radius: 15px;
       padding: 2rem 1.8rem;
       box-shadow:
-        0 0 12px #d4af3711,
-        inset 0 0 40px #d4af3744;
+        0 0 10px #bfa24a22,
+        inset 0 0 30px #bfa24a44;
       text-align: center;
       cursor: default;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
-      color: #f5f2e7;
+      color: #e0dcca;
       font-weight: 600;
       user-select: none;
     }
     .industry-card:hover {
       box-shadow:
-        0 0 30px #d4af37cc,
-        inset 0 0 50px #d4af3766;
-      transform: translateY(-6px);
+        0 0 28px #bfa24acc,
+        inset 0 0 50px #bfa24a77;
+      transform: translateY(-5px);
     }
     .industry-icon {
       font-size: 3.2rem;
       margin-bottom: 1.3rem;
-      color: #d4af37;
-      filter: drop-shadow(0 0 6px #d4af37aa);
+      color: #bfa24a;
+      filter: drop-shadow(0 0 5px #bfa24a99);
       user-select: none;
     }
     .industry-card h3 {
@@ -247,13 +250,13 @@
       font-weight: 900;
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
-      color: #f9d976;
-      text-shadow: 0 0 8px #d4af37bb;
+      color: #d4b85a;
+      text-shadow: 0 0 5px #bfa24aaa;
       user-select: none;
     }
     .industry-card p {
       font-size: 1rem;
-      color: #e0d9bf;
+      color: #d4cfa5;
       margin: 0;
       user-select: text;
       line-height: 1.4;
@@ -267,45 +270,45 @@
       margin-top: 2.5rem;
     }
     .solution-card {
-      background: rgba(212, 175, 55, 0.07);
+      background: rgba(191, 162, 74, 0.07);
       border-radius: 20px;
       padding: 2.2rem 2rem 2.5rem;
       box-shadow:
-        0 0 20px #d4af3711,
-        inset 0 0 50px #d4af3744;
+        0 0 18px #bfa24a22,
+        inset 0 0 40px #bfa24a44;
       transition: transform 0.35s cubic-bezier(.21,.61,.35,1), box-shadow 0.35s ease;
       cursor: default;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      color: #f5f2e7;
+      color: #e0dcca;
       user-select: none;
     }
     .solution-card:hover {
       box-shadow:
-        0 0 50px #d4af37cc,
-        inset 0 0 70px #d4af3766;
-      transform: translateY(-8px);
+        0 0 38px #bfa24acc,
+        inset 0 0 65px #bfa24a77;
+      transform: translateY(-6px);
     }
     .solution-icon {
       font-size: 4.5rem;
-      color: #d4af37;
+      color: #bfa24a;
       margin-bottom: 1.5rem;
-      filter: drop-shadow(0 0 8px #d4af37cc);
+      filter: drop-shadow(0 0 6px #bfa24acc);
       user-select: none;
     }
     .solution-card h3 {
       margin-bottom: 0.7rem;
-      color: #f9d976;
+      color: #d4b85a;
       font-weight: 900;
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
       user-select: none;
-      text-shadow: 0 0 10px #d4af37bb;
+      text-shadow: 0 0 6px #bfa24aaa;
     }
     .solution-card p {
-      color: #e0d9bf;
+      color: #d4cfa5;
       font-size: 1.1rem;
       line-height: 1.35;
       margin-bottom: 1.4rem;
@@ -313,8 +316,8 @@
     }
     .solution-card button.details-btn {
       background: transparent;
-      color: #d4af37;
-      border: 2.5px solid #d4af37;
+      color: #bfa24a;
+      border: 2.3px solid #bfa24a;
       padding: 0.65rem 1.8rem;
       font-size: 1rem;
       font-weight: 700;
@@ -324,82 +327,76 @@
       align-self: center;
       text-transform: uppercase;
       letter-spacing: 1.3px;
-      box-shadow: 0 0 15px #d4af37aa;
+      box-shadow: 0 0 10px #bfa24a99;
       user-select: none;
     }
     .solution-card button.details-btn:hover,
     .solution-card button.details-btn:focus {
-      background: #d4af37;
-      color: #0a0e23;
+      background: #bfa24a;
+      color: #1e1e28;
       outline: none;
       box-shadow:
-        0 0 25px #ffd54fcc,
-        0 6px 25px #f9d976ee;
-      filter: drop-shadow(0 0 10px #f9d976dd);
+        0 0 18px #d4b85acc,
+        0 6px 18px #bfa24acc;
+      filter: drop-shadow(0 0 6px #d4b85add);
     }
 
-    /* About Us */
-    #about p {
-      max-width: 720px;
-      margin-bottom: 1.3rem;
-      color: #e0d9bf;
-      text-shadow: 0 0 6px #0009;
-      user-select: text;
+    /* Testimonials */
+    #testimonials h2 {
+      margin-bottom: 2rem;
     }
-    .team-grid {
+    .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 3rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 2.8rem;
+      margin-top: 1rem;
     }
-    .team-member {
-      background: rgba(212, 175, 55, 0.05);
-      padding: 1.5rem 1.4rem 2rem;
-      border-radius: 15px;
+    .testimonial-card {
+      background: rgba(191, 162, 74, 0.07);
+      padding: 2.2rem 2rem 2.5rem;
+      border-radius: 20px;
       box-shadow:
-        0 0 18px #d4af3711,
-        inset 0 0 50px #d4af3744;
-      text-align: center;
-      color: #f5f2e7;
-      user-select: none;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      cursor: default;
+        0 0 18px #bfa24a22,
+        inset 0 0 40px #bfa24a44;
+      color: #e0dcca;
+      font-style: italic;
+      font-size: 1.15rem;
+      position: relative;
+      user-select: text;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .team-member:hover {
+    .testimonial-card:hover {
       box-shadow:
-        0 0 40px #d4af37cc,
-        inset 0 0 65px #d4af3766;
-      transform: translateY(-6px);
+        0 0 38px #bfa24acc,
+        inset 0 0 65px #bfa24a77;
+      transform: translateY(-5px);
     }
-    .team-photo {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 0.7rem;
-      border: 4px solid #d4af37;
-      filter: drop-shadow(0 0 12px #d4af37aa);
-      user-select: none;
-      transition: filter 0.3s ease;
-    }
-    .team-member:hover .team-photo {
-      filter: drop-shadow(0 0 25px #ffd54fcc);
-    }
-    .team-member h4 {
-      margin: 0.7rem 0 0.4rem;
-      color: #f9d976;
+    .testimonial-card::before {
+      content: "“";
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
       font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      color: #bfa24a88;
+      user-select: none;
       font-weight: 900;
-      font-size: 1.3rem;
-      user-select: text;
-      text-shadow: 0 0 10px #d4af37bb;
     }
-    .team-member p {
-      font-size: 1rem;
-      color: #e0d9bf;
-      margin: 0;
+    .testimonial-text {
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
       user-select: text;
-      font-weight: 600;
+      color: #d4cfa5;
+      text-shadow: 0 0 3px #000a;
+    }
+    .testimonial-author {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #d4b85a;
+      text-align: right;
+      font-family: 'Playfair Display', serif;
+      user-select: text;
+      text-shadow: 0 0 5px #bfa24aaa;
     }
 
     /* Contact form */
@@ -412,40 +409,40 @@
       display: block;
       margin-bottom: 0.45rem;
       font-weight: 700;
-      color: #d4af37;
-      text-shadow: 0 0 5px #d4af37aa;
+      color: #bfa24a;
+      text-shadow: 0 0 3px #bfa24a88;
       font-size: 1.05rem;
     }
     input, textarea {
       width: 100%;
       padding: 0.75rem 1rem;
       margin-bottom: 1.3rem;
-      border-radius: 9px;
-      border: 1.8px solid #503e0b;
+      border-radius: 8px;
+      border: 1.5px solid #665c20;
       font-size: 1.1rem;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
       font-family: 'Open Sans', Arial, sans-serif;
       resize: vertical;
-      background-color: #191c3e;
-      color: #f5f2e7;
+      background-color: #2a2a38;
+      color: #e0dcca;
       box-shadow:
-        inset 0 0 6px #000a;
+        inset 0 0 5px #000a;
     }
     input::placeholder,
     textarea::placeholder {
-      color: #b1a96a;
-      opacity: 0.8;
+      color: #a7974f;
+      opacity: 0.75;
     }
     input:focus, textarea:focus {
-      border-color: #f9d976;
+      border-color: #d4b85a;
       outline: none;
       box-shadow:
-        0 0 8px #f9d976bb,
-        inset 0 0 12px #f9d976aa;
+        0 0 6px #d4b85a99,
+        inset 0 0 10px #d4b85a88;
     }
     button[type="submit"] {
-      background: linear-gradient(45deg, #d4af37, #f9d976);
-      color: #0a0e23;
+      background: linear-gradient(135deg, #bfa24a, #d4b85a);
+      color: #1e1e28;
       padding: 1rem 2.8rem;
       border: none;
       border-radius: 9999px;
@@ -457,61 +454,60 @@
       letter-spacing: 2px;
       background-size: 200% 200%;
       background-position: left center;
-      filter: drop-shadow(0 0 6px #d4af37aa);
+      filter: drop-shadow(0 0 4px #bfa24a99);
       user-select: none;
       box-shadow:
-        0 0 16px #d4af37cc,
-        0 6px 20px #f9d976bb;
-      user-select: none;
+        0 0 12px #bfa24acc,
+        0 4px 14px #d4b85a99;
     }
     button[type="submit"]:hover,
     button[type="submit"]:focus {
       background-position: right center;
       outline: none;
       box-shadow:
-        0 0 30px #ffd54fcc,
-        0 10px 30px #f9d976ee;
-      filter: drop-shadow(0 0 12px #f9d976dd);
+        0 0 22px #d4b85acc,
+        0 8px 22px #bfa24acc;
+      filter: drop-shadow(0 0 8px #d4b85add);
     }
     .form-message {
       margin-top: 1.2rem;
       font-weight: 700;
       font-size: 1.1rem;
-      text-shadow: 0 0 5px #000b;
+      text-shadow: 0 0 3px #000b;
     }
     .form-message.success {
-      color: #a7d87b;
-      text-shadow: 0 0 10px #a7d87bcc;
+      color: #9cc573;
+      text-shadow: 0 0 6px #9cc573aa;
     }
     .form-message.error {
-      color: #e37b7b;
-      text-shadow: 0 0 10px #e37b7bcc;
+      color: #d98a8a;
+      text-shadow: 0 0 6px #d98a8aaa;
     }
 
     /* Footer */
     footer {
       text-align: center;
       padding: 2.8rem 1rem;
-      background: #0a0e23;
-      color: #d4af37;
+      background: #1e1e28;
+      color: #bfa24a;
       font-size: 0.95rem;
       user-select: none;
       letter-spacing: 0.03em;
       font-weight: 600;
-      text-shadow: 0 0 12px #d4af37aa;
-      border-top: 1px solid #503e0b;
+      text-shadow: 0 0 8px #bfa24a88;
+      border-top: 1px solid #665c20;
     }
     footer a {
-      color: #f9d976;
+      color: #d4b85a;
       margin: 0 0.8rem;
       font-weight: 700;
-      text-shadow: 0 0 8px #f9d976bb;
+      text-shadow: 0 0 4px #d4b85a88;
       transition: color 0.3s ease;
       user-select: none;
     }
     footer a:hover {
-      color: #ffd54f;
-      text-shadow: 0 0 14px #ffd54fcc;
+      color: #e6d47d;
+      text-shadow: 0 0 8px #e6d47d99;
     }
 
     /* Responsive tweaks */
@@ -540,7 +536,7 @@
       .industries-grid {
         grid-template-columns: 1fr;
       }
-      .team-grid {
+      .testimonial-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -549,14 +545,14 @@
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(10,14,35,0.94);
+      background: rgba(30,30,40,0.94);
       display: none;
       justify-content: center;
       align-items: center;
       z-index: 2500;
       padding: 1rem 1.5rem;
       overflow-y: auto;
-      backdrop-filter: saturate(180%) blur(10px);
+      backdrop-filter: saturate(140%) blur(8px);
       user-select: text;
     }
     .modal-overlay.active {
@@ -568,17 +564,17 @@
       to {opacity: 1;}
     }
     .modal-content {
-      background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+      background: linear-gradient(135deg, rgba(191,162,74,0.12), rgba(191,162,74,0.04));
       max-width: 720px;
       width: 100%;
-      border-radius: 15px;
+      border-radius: 14px;
       padding: 2.5rem 3rem 3rem;
       position: relative;
       box-shadow:
-        0 0 25px #d4af37cc,
-        inset 0 0 80px #d4af3744;
+        0 0 22px #bfa24acc,
+        inset 0 0 60px #bfa24a44;
       animation: slideDown 0.35s ease forwards;
-      color: #f5f2e7;
+      color: #e0dcca;
       font-size: 1.15rem;
       font-weight: 400;
       font-family: 'Open Sans', Arial, sans-serif;
@@ -586,7 +582,7 @@
       user-select: text;
     }
     @keyframes slideDown {
-      from {transform: translateY(-30px); opacity: 0;}
+      from {transform: translateY(-25px); opacity: 0;}
       to {transform: translateY(0); opacity: 1;}
     }
     .modal-close {
@@ -595,30 +591,30 @@
       right: 1.3rem;
       background: transparent;
       border: none;
-      font-size: 2.2rem;
+      font-size: 2rem;
       cursor: pointer;
-      color: #d4af37;
+      color: #bfa24a;
       font-weight: 900;
       line-height: 1;
       padding: 0;
       transition: color 0.3s ease;
       user-select: none;
-      text-shadow: 0 0 14px #d4af37cc;
+      text-shadow: 0 0 10px #bfa24a88;
     }
     .modal-close:hover,
     .modal-close:focus {
-      color: #f9d976;
+      color: #d4b85a;
       outline: none;
-      text-shadow: 0 0 22px #f9d976cc;
+      text-shadow: 0 0 14px #d4b85aaa;
     }
     .modal-content h3 {
       margin-top: 0;
-      color: #d4af37;
+      color: #bfa24a;
       font-weight: 900;
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 16px #ffd54fcc;
+      font-size: 2.4rem;
+      margin-bottom: 1.3rem;
+      text-shadow: 0 0 10px #d4b85aaa;
       user-select: text;
     }
     .modal-content p {
@@ -629,12 +625,12 @@
       list-style-type: disc;
       margin-left: 1.8rem;
       margin-bottom: 1.5rem;
-      color: #e0d9bf;
+      color: #d4cfa5;
       font-size: 1.1rem;
       user-select: text;
     }
     .modal-content ul li {
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.6rem;
     }
   </style>
 </head>
@@ -645,7 +641,7 @@
       <a href="#home" class="active">Home</a>
       <a href="#industries">Industries</a>
       <a href="#solutions">Solutions</a>
-      <a href="#about">About Us</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -724,29 +720,25 @@
       </div>
     </section>
 
-    <section id="about" tabindex="-1" aria-label="About Seraphis IT and Data Solutions">
-      <h2>About Us</h2>
-      <p>Seraphis IT and Data Solutions is a leading Managed Service Provider (MSP) and Independent Software Vendor (ISV) dedicated to delivering innovative technology solutions that empower businesses across multiple industries.</p>
-      <p>Our mission is to provide best-in-class IT services, combining expertise in data analytics, custom application development, cybersecurity, managed IT, and compliance to help organizations thrive in a digital world.</p>
-      <p>Founded by industry veterans, we pride ourselves on our commitment to customer success, innovation, and integrity.</p>
-
-      <h3>Meet Our Team</h3>
-      <div class="team-grid">
-        <div class="team-member" role="group" aria-label="John Doe, CEO">
-          <img src="https://i.pravatar.cc/130?img=5" alt="John Doe CEO" class="team-photo" />
-          <h4>John Doe</h4>
-          <p>Chief Executive Officer</p>
-        </div>
-        <div class="team-member" role="group" aria-label="Jane Smith, CTO">
-          <img src="https://i.pravatar.cc/130?img=3" alt="Jane Smith CTO" class="team-photo" />
-          <h4>Jane Smith</h4>
-          <p>Chief Technology Officer</p>
-        </div>
-        <div class="team-member" role="group" aria-label="Michael Lee, Head of Cybersecurity">
-          <img src="https://i.pravatar.cc/130?img=7" alt="Michael Lee Head of Cybersecurity" class="team-photo" />
-          <h4>Michael Lee</h4>
-          <p>Head of Cybersecurity</p>
-        </div>
+    <section id="testimonials" tabindex="-1" aria-label="Client testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-grid">
+        <article class="testimonial-card">
+          <p class="testimonial-text">Seraphis transformed our IT infrastructure with their expert managed services. Their proactive approach gave us peace of mind and improved efficiency drastically.</p>
+          <p class="testimonial-author">— Lisa M., CFO, FinCorp</p>
+        </article>
+        <article class="testimonial-card">
+          <p class="testimonial-text">Their custom application development perfectly matched our unique business needs, accelerating our digital transformation journey. Highly recommend!</p>
+          <p class="testimonial-author">— Mark T., CEO, RetailWorld</p>
+        </article>
+        <article class="testimonial-card">
+          <p class="testimonial-text">Thanks to Seraphis' cybersecurity expertise, we feel confident our data and systems are protected against evolving threats. Their team is responsive and knowledgeable.</p>
+          <p class="testimonial-author">— Sarah K., IT Director, HealthPlus</p>
+        </article>
+        <article class="testimonial-card">
+          <p class="testimonial-text">Their data analytics solutions helped us uncover critical insights, driving strategic decisions and business growth. The dashboards are intuitive and powerful.</p>
+          <p class="testimonial-author">— David R., Operations Manager, ManufacPro</p>
+        </article>
       </div>
     </section>
 
