@@ -1,953 +1,296 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seraphis IT and Data Solutions - Sharp Bright Luxury Theme</title>
-  <style>
-    /* Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600&display=swap');
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
-    /* Reset and base */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Open Sans', Arial, sans-serif;
-      line-height: 1.6;
-      color: #222222;
-      background: #fefefe;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a {
-      color: #c7a252;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover, a:focus {
-      color: #d9b94f;
-      text-decoration: underline;
-      outline: none;
-    }
+const Index = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    /* Header / Navigation */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      color: #c7a252;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2.5rem;
-      z-index: 1100;
-      box-shadow: 0 2px 10px rgba(199, 162, 82, 0.35);
-      user-select: none;
-      font-weight: 600;
-      letter-spacing: 1.1px;
-      border-bottom: 1.5px solid #d1b85a;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      margin: 0;
-      font-weight: 900;
-      letter-spacing: 2.8px;
-      cursor: default;
-    }
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-    nav a {
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.6rem 0;
-      border-bottom: 2.5px solid transparent;
-      transition: border-color 0.3s ease, color 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-    nav a:hover,
-    nav a:focus,
-    nav a.active {
-      border-bottom: 2.5px solid #c7a252;
-      color: #d9b94f;
-      outline: none;
-    }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    /* Main container */
-    main {
-      padding-top: 92px; /* header height + spacing */
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      user-select: none;
-    }
-
-    /* Section styling */
-    section {
-      position: relative;
-      padding: 5rem 2rem 6rem;
-      margin-bottom: 3.5rem;
-      border-radius: 14px;
-      background-color: #ffffff;
-      box-shadow:
-        0 6px 15px rgba(199, 162, 82, 0.15);
-      color: #222222;
-      transition: transform 0.6s cubic-bezier(.21,.61,.35,1), opacity 0.8s ease;
-      opacity: 0;
-      transform: translateY(40px);
-      border: 1px solid #d1b85a;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      margin-bottom: 1.2rem;
-      color: #c7a252;
-      border-left: 6px solid #c7a252;
-      padding-left: 0.8rem;
-    }
-    section p {
-      max-width: 700px;
-      font-size: 1.2rem;
-      color: #444444;
-      line-height: 1.55;
-      margin-bottom: 1rem;
-    }
-
-    /* Hero */
-    #home {
-      position: relative;
-      text-align: center;
-      padding: 8rem 1rem 10rem;
-      border-radius: 20px;
-      color: #c7a252;
-      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-      box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.75);
-      overflow: hidden;
-    }
-    #home::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(135deg, #ffffffcc 0%, #c7a25233 100%);
-      z-index: 0;
-      border-radius: 20px;
-    }
-    #home h1 {
-      position: relative;
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      font-weight: 900;
-      margin-bottom: 0.7rem;
-      letter-spacing: 3px;
-      z-index: 1;
-      text-shadow: 0 0 6px #c7a252cc;
-    }
-    #home p {
-      position: relative;
-      font-size: 1.6rem;
-      font-weight: 600;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.3;
-      z-index: 1;
-      text-shadow: 0 0 4px #c7a252aa;
-    }
-    #home .btn-primary {
-      position: relative;
-      font-size: 1.3rem;
-      background: linear-gradient(45deg, #c7a252, #e1c85a);
-      color: #222222;
-      padding: 1rem 3rem;
-      border: none;
-      border-radius: 9999px;
-      cursor: pointer;
-      font-weight: 900;
-      box-shadow:
-        0 0 12px #e1c85aaa,
-        0 5px 15px #c7a252cc;
-      transition: background-position 0.4s ease, box-shadow 0.4s ease;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-decoration: none;
-      z-index: 1;
-      user-select: none;
-      background-size: 200% 200%;
-      background-position: left center;
-      display: inline-block;
-    }
-    #home .btn-primary:hover,
-    #home .btn-primary:focus {
-      background-position: right center;
-      outline: none;
-      box-shadow:
-        0 0 24px #e1c85aff,
-        0 8px 24px #c7a252ff;
-    }
-
-    /* Industries grid */
-    .industries-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-    }
-    .industry-card {
-      background: #fff;
-      border-radius: 15px;
-      padding: 2rem 1.8rem;
-      box-shadow:
-        0 0 15px rgba(199, 162, 82, 0.18);
-      text-align: center;
-      cursor: default;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      color: #222222;
-      font-weight: 600;
-      user-select: none;
-      border: 1px solid #d1b85a;
-    }
-    .industry-card:hover {
-      box-shadow:
-        0 0 40px #c7a252bb;
-      transform: translateY(-6px);
-    }
-    .industry-icon {
-      font-size: 3.2rem;
-      margin-bottom: 1.3rem;
-      color: #c7a252;
-      user-select: none;
-    }
-    .industry-card h3 {
-      margin: 0.6rem 0 0.7rem;
-      font-weight: 900;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: #c7a252;
-    }
-    .industry-card p {
-      font-size: 1rem;
-      color: #444444;
-      margin: 0;
-      user-select: text;
-      line-height: 1.4;
-    }
-
-    /* Solutions cards */
-    .solutions-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-      gap: 2.8rem;
-      margin-top: 2.5rem;
-    }
-    .solution-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 2.4rem 2rem 2.8rem;
-      box-shadow:
-        0 0 22px rgba(199, 162, 82, 0.18);
-      transition: transform 0.35s cubic-bezier(.21,.61,.35,1), box-shadow 0.35s ease;
-      cursor: default;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      color: #222222;
-      user-select: none;
-      border: 1px solid #d1b85a;
-    }
-    .solution-card:hover {
-      box-shadow:
-        0 0 46px #c7a252cc;
-      transform: translateY(-7px);
-    }
-    .solution-icon {
-      font-size: 4.7rem;
-      color: #c7a252;
-      margin-bottom: 1.6rem;
-      user-select: none;
-    }
-    .solution-card h3 {
-      margin-bottom: 0.7rem;
-      color: #c7a252;
-      font-weight: 900;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.85rem;
-      user-select: none;
-      text-shadow: 0 0 3px #c7a252bb;
-    }
-    .solution-card p {
-      color: #444444;
-      font-size: 1.15rem;
-      line-height: 1.35;
-      margin-bottom: 1.5rem;
-      user-select: text;
-    }
-    .solution-card button.details-btn {
-      background: transparent;
-      color: #c7a252;
-      border: 2.8px solid #c7a252;
-      padding: 0.7rem 2rem;
-      font-size: 1.05rem;
-      font-weight: 700;
-      border-radius: 9999px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      align-self: center;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      box-shadow: 0 0 14px #c7a252aa;
-      user-select: none;
-    }
-    .solution-card button.details-btn:hover,
-    .solution-card button.details-btn:focus {
-      background: #c7a252;
-      color: #fff;
-      outline: none;
-      box-shadow:
-        0 0 28px #e1c85aff,
-        0 6px 20px #c7a252ff;
-      filter: drop-shadow(0 0 6px #e1c85aff);
-    }
-
-    /* Testimonials */
-    #testimonials h2 {
-      margin-bottom: 2rem;
-    }
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-      gap: 3rem;
-      margin-top: 1rem;
-    }
-    .testimonial-card {
-      background: #fff;
-      padding: 2.4rem 2.2rem 2.8rem;
-      border-radius: 20px;
-      box-shadow:
-        0 0 20px rgba(199, 162, 82, 0.2);
-      color: #222222;
-      font-style: italic;
-      font-size: 1.2rem;
-      position: relative;
-      user-select: text;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #d1b85a;
-    }
-    .testimonial-card:hover {
-      box-shadow:
-        0 0 48px #c7a252cc;
-      transform: translateY(-6px);
-    }
-    .testimonial-card::before {
-      content: "“";
-      position: absolute;
-      top: 1.4rem;
-      left: 1.4rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      color: #c7a252aa;
-      user-select: none;
-      font-weight: 900;
-    }
-    .testimonial-text {
-      margin-bottom: 1.6rem;
-      line-height: 1.55;
-      user-select: text;
-      color: #444444;
-      text-shadow: none;
-    }
-    .testimonial-author {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: #c7a252;
-      text-align: right;
-      font-family: 'Playfair Display', serif;
-      user-select: text;
-      text-shadow: 0 0 3px #c7a252aa;
-    }
-
-    /* Contact form */
-    form {
-      max-width: 520px;
-      margin-top: 2rem;
-      user-select: text;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.45rem;
-      font-weight: 700;
-      color: #c7a252;
-      font-size: 1.1rem;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      margin-bottom: 1.4rem;
-      border-radius: 9px;
-      border: 1.8px solid #d7d0a9;
-      font-size: 1.15rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      font-family: 'Open Sans', Arial, sans-serif;
-      resize: vertical;
-      background-color: #fff;
-      color: #222222;
-      box-shadow:
-        inset 0 0 6px #f0eecf;
-    }
-    input::placeholder,
-    textarea::placeholder {
-      color: #c7a252;
-      opacity: 0.85;
-    }
-    input:focus, textarea:focus {
-      border-color: #e1c85a;
-      outline: none;
-      box-shadow:
-        0 0 8px #e1c85aaa,
-        inset 0 0 12px #e1c85a99;
-    }
-    button[type="submit"] {
-      background: linear-gradient(45deg, #c7a252, #e1c85a);
-      color: #fff;
-      padding: 1.1rem 3rem;
-      border: none;
-      border-radius: 9999px;
-      font-size: 1.25rem;
-      font-weight: 900;
-      cursor: pointer;
-      transition: background-position 0.4s ease, box-shadow 0.4s ease;
-      text-transform: uppercase;
-      letter-spacing: 2.2px;
-      background-size: 200% 200%;
-      background-position: left center;
-      filter: drop-shadow(0 0 4px #c7a252aa);
-      user-select: none;
-      box-shadow:
-        0 0 16px #c7a252cc,
-        0 6px 20px #e1c85a99;
-    }
-    button[type="submit"]:hover,
-    button[type="submit"]:focus {
-      background-position: right center;
-      outline: none;
-      box-shadow:
-        0 0 28px #e1c85aff,
-        0 10px 28px #c7a252ff;
-      filter: drop-shadow(0 0 10px #e1c85aff);
-    }
-    .form-message {
-      margin-top: 1.4rem;
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: #4a4a43;
-    }
-    .form-message.success {
-      color: #5a8a3a;
-    }
-    .form-message.error {
-      color: #b84a4a;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: #fefefe;
-      color: #c7a252;
-      font-size: 1rem;
-      user-select: none;
-      letter-spacing: 0.03em;
-      font-weight: 600;
-      border-top: 1.5px solid #d1b85a;
-    }
-    footer a {
-      color: #d1b85a;
-      margin: 0 0.9rem;
-      font-weight: 700;
-      transition: color 0.3s ease;
-      user-select: none;
-    }
-    footer a:hover {
-      color: #c7a252;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 700px) {
-      header {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        padding: 1rem 1.5rem;
-      }
-      nav {
-        gap: 1.2rem;
-      }
-      nav a {
-        font-size: 0.95rem;
-      }
-      #home h1 {
-        font-size: 3rem;
-      }
-      #home p {
-        font-size: 1.4rem;
-      }
-      .solutions-grid {
-        grid-template-columns: 1fr;
-      }
-      .industries-grid {
-        grid-template-columns: 1fr;
-      }
-      .testimonial-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Modal styles */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: #fefefe;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 2500;
-      padding: 1rem 1.5rem;
-      overflow-y: auto;
-      user-select: text;
-      box-shadow: inset 0 0 100px #fff9e0aa;
-    }
-    .modal-overlay.active {
-      display: flex;
-      animation: fadeIn 0.35s ease forwards;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-    .modal-content {
-      background: linear-gradient(135deg, #fff9e0, #fffdf7);
-      max-width: 720px;
-      width: 100%;
-      border-radius: 16px;
-      padding: 2.6rem 3.2rem 3.2rem;
-      position: relative;
-      box-shadow:
-        0 0 25px #c7a252cc;
-      animation: slideDown 0.35s ease forwards;
-      color: #222222;
-      font-size: 1.2rem;
-      font-weight: 400;
-      font-family: 'Open Sans', Arial, sans-serif;
-      line-height: 1.6;
-      user-select: text;
-      border: 1px solid #d1b85a;
-    }
-    @keyframes slideDown {
-      from {transform: translateY(-25px); opacity: 0;}
-      to {transform: translateY(0); opacity: 1;}
-    }
-    .modal-close {
-      position: absolute;
-      top: 1.3rem;
-      right: 1.3rem;
-      background: transparent;
-      border: none;
-      font-size: 2.2rem;
-      cursor: pointer;
-      color: #c7a252;
-      font-weight: 900;
-      line-height: 1;
-      padding: 0;
-      transition: color 0.3s ease;
-      user-select: none;
-    }
-    .modal-close:hover,
-    .modal-close:focus {
-      color: #d1b85a;
-      outline: none;
-    }
-    .modal-content h3 {
-      margin-top: 0;
-      color: #c7a252;
-      font-weight: 900;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      margin-bottom: 1.5rem;
-      user-select: text;
-    }
-    .modal-content p {
-      margin-bottom: 1rem;
-      user-select: text;
-    }
-    .modal-content ul {
-      list-style-type: disc;
-      margin-left: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #555555;
-      font-size: 1.15rem;
-      user-select: text;
-    }
-    .modal-content ul li {
-      margin-bottom: 0.7rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Seraphis IT &amp; Data Solutions</h1>
-    <nav aria-label="Primary">
-      <a href="#home" class="active">Home</a>
-      <a href="#industries">Industries</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="home" tabindex="-1" aria-label="Home section">
-      <h1>Empowering Your Business with Innovative IT Solutions</h1>
-      <p>Your trusted MSP and ISV partner for Data Analytics, Managed IT, Cybersecurity, and Compliance.</p>
-      <a href="#contact" class="btn-primary" role="button">Get in Touch</a>
-    </section>
-
-    <section id="industries" tabindex="-1" aria-label="Industries served">
-      <h2>Industries We Serve</h2>
-      <div class="industries-grid">
-        <article class="industry-card" aria-label="Healthcare Industry">
-          <div class="industry-icon" aria-hidden="true">🏥</div>
-          <h3>Healthcare</h3>
-          <p>Secure and compliant IT solutions tailored for healthcare providers and institutions.</p>
-        </article>
-        <article class="industry-card" aria-label="Finance Industry">
-          <div class="industry-icon" aria-hidden="true">💼</div>
-          <h3>Finance</h3>
-          <p>Robust data analytics and cybersecurity services for banking and financial organizations.</p>
-        </article>
-        <article class="industry-card" aria-label="Retail Industry">
-          <div class="industry-icon" aria-hidden="true">🛒</div>
-          <h3>Retail</h3>
-          <p>Optimizing retail operations with custom applications and managed IT services.</p>
-        </article>
-        <article class="industry-card" aria-label="Manufacturing Industry">
-          <div class="industry-icon" aria-hidden="true">🏭</div>
-          <h3>Manufacturing</h3>
-          <p>Innovative IT infrastructure and analytics to streamline manufacturing processes.</p>
-        </article>
-        <article class="industry-card" aria-label="Education Industry">
-          <div class="industry-icon" aria-hidden="true">🎓</div>
-          <h3>Education</h3>
-          <p>Secure learning environments and data-driven insights for educational institutions.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="solutions" tabindex="-1" aria-label="Solutions offered">
-      <h2>Our Solutions</h2>
-      <div class="solutions-grid">
-        <article class="solution-card" aria-label="Data Analytics solution">
-          <div class="solution-icon" aria-hidden="true">📊</div>
-          <h3>Data Analytics</h3>
-          <p>Transform your data into actionable insights to drive better business decisions.</p>
-          <button class="details-btn" data-modal="modal-data-analytics" aria-haspopup="dialog" aria-controls="modal-data-analytics">Learn More</button>
-        </article>
-        <article class="solution-card" aria-label="Application Development solution">
-          <div class="solution-icon" aria-hidden="true">💻</div>
-          <h3>Application Development</h3>
-          <p>Custom software solutions tailored to your business needs and goals.</p>
-          <button class="details-btn" data-modal="modal-app-dev" aria-haspopup="dialog" aria-controls="modal-app-dev">Learn More</button>
-        </article>
-        <article class="solution-card" aria-label="Managed IT Services solution">
-          <div class="solution-icon" aria-hidden="true">🛠️</div>
-          <h3>Managed IT Services</h3>
-          <p>Proactive IT management and support to keep your operations running smoothly.</p>
-          <button class="details-btn" data-modal="modal-managed-it" aria-haspopup="dialog" aria-controls="modal-managed-it">Learn More</button>
-        </article>
-        <article class="solution-card" aria-label="Cybersecurity solution">
-          <div class="solution-icon" aria-hidden="true">🛡️</div>
-          <h3>Cybersecurity</h3>
-          <p>Protect your business with comprehensive security strategies and solutions.</p>
-          <button class="details-btn" data-modal="modal-cybersecurity" aria-haspopup="dialog" aria-controls="modal-cybersecurity">Learn More</button>
-        </article>
-        <article class="solution-card" aria-label="Compliance solution">
-          <div class="solution-icon" aria-hidden="true">📜</div>
-          <h3>Compliance</h3>
-          <p>Ensure your business meets industry regulations and standards effortlessly.</p>
-          <button class="details-btn" data-modal="modal-compliance" aria-haspopup="dialog" aria-controls="modal-compliance">Learn More</button>
-        </article>
-      </div>
-    </section>
-
-    <section id="testimonials" tabindex="-1" aria-label="Client testimonials">
-      <h2>What Our Clients Say</h2>
-      <div class="testimonial-grid">
-        <article class="testimonial-card">
-          <p class="testimonial-text">Seraphis transformed our IT infrastructure with their expert managed services. Their proactive approach gave us peace of mind and improved efficiency drastically.</p>
-          <p class="testimonial-author">— Lisa M., CFO, FinCorp</p>
-        </article>
-        <article class="testimonial-card">
-          <p class="testimonial-text">Their custom application development perfectly matched our unique business needs, accelerating our digital transformation journey. Highly recommend!</p>
-          <p class="testimonial-author">— Mark T., CEO, RetailWorld</p>
-        </article>
-        <article class="testimonial-card">
-          <p class="testimonial-text">Thanks to Seraphis' cybersecurity expertise, we feel confident our data and systems are protected against evolving threats. Their team is responsive and knowledgeable.</p>
-          <p class="testimonial-author">— Sarah K., IT Director, HealthPlus</p>
-        </article>
-        <article class="testimonial-card">
-          <p class="testimonial-text">Their data analytics solutions helped us uncover critical insights, driving strategic decisions and business growth. The dashboards are intuitive and powerful.</p>
-          <p class="testimonial-author">— David R., Operations Manager, ManufacPro</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" tabindex="-1" aria-label="Contact Seraphis IT and Data Solutions">
-      <h2>Contact Us</h2>
-      <p>Have questions or want to discuss your IT needs? Reach out to us!</p>
-      <p><strong>Phone:</strong> <a href="tel:+27670542001">+27 67 054 2001</a><br />
-         <strong>Email:</strong> <a href="mailto:info@seraphis-it.com">info@seraphis-it.com</a></p>
-      <form id="contactForm" action="send_email.php" method="POST" novalidate>
-        <label for="name">Name *</label>
-        <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name" />
-
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required aria-required="true" placeholder="your.email@example.com" />
-
-        <label for="message">Message *</label>
-        <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Write your message here..."></textarea>
-
-        <button type="submit">Send Message</button>
-        <div id="formMessage" role="alert" class="form-message" aria-live="polite"></div>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2024 Seraphis IT and Data Solutions | 
-    <a href="https://linkedin.com/company/seraphis" target="_blank" rel="noopener">LinkedIn</a> | 
-    <a href="https://twitter.com/seraphis" target="_blank" rel="noopener">Twitter</a> | 
-    <a href="mailto:info@seraphisit.com">Email Us</a>
-  </footer>
-
-  <!-- Modals for extended details -->
-  <div class="modal-overlay" id="modal-data-analytics" role="dialog" aria-modal="true" aria-labelledby="modal-data-analytics-title" tabindex="-1">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close Data Analytics details">&times;</button>
-      <h3 id="modal-data-analytics-title">Data Analytics</h3>
-      <p>At Seraphis IT and Data Solutions, our Data Analytics services empower your business by harnessing the full potential of your data.</p>
-      <p>We provide:</p>
-      <ul>
-        <li>Comprehensive data collection and integration from diverse sources.</li>
-        <li>Advanced analytics techniques including predictive modeling and AI.</li>
-        <li>Custom dashboards and visualization tailored to your KPIs.</li>
-        <li>Consulting to identify data-driven growth opportunities.</li>
-        <li>Ongoing support and optimization to keep your insights current.</li>
-      </ul>
-      <p>Our solutions enable smarter decision-making and a competitive edge in your industry.</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-app-dev" role="dialog" aria-modal="true" aria-labelledby="modal-app-dev-title" tabindex="-1">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close Application Development details">&times;</button>
-      <h3 id="modal-app-dev-title">Application Development</h3>
-      <p>We specialize in building custom software applications designed to fit your unique business processes and goals.</p>
-      <p>Our Application Development offerings include:</p>
-      <ul>
-        <li>End-to-end development lifecycle management.</li>
-        <li>Cross-platform mobile and web app development.</li>
-        <li>Integration with existing systems and APIs.</li>
-        <li>Agile methodology for flexibility and rapid iteration.</li>
-        <li>User-focused design for optimal experience.</li>
-      </ul>
-      <p>Partner with us to bring your digital visions to life efficiently and reliably.</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-managed-it" role="dialog" aria-modal="true" aria-labelledby="modal-managed-it-title" tabindex="-1">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close Managed IT Services details">&times;</button>
-      <h3 id="modal-managed-it-title">Managed IT Services</h3>
-      <p>Our Managed IT Services provide proactive monitoring, maintenance, and support to ensure your IT infrastructure runs smoothly and securely.</p>
-      <p>Key features include:</p>
-      <ul>
-        <li>24/7 network and system monitoring.</li>
-        <li>Regular security updates and patch management.</li>
-        <li>Helpdesk support with rapid response times.</li>
-        <li>Cloud services management and optimization.</li>
-        <li>Disaster recovery planning and backup solutions.</li>
-      </ul>
-      <p>Let us handle your IT operations so you can focus on growing your business.</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-cybersecurity" role="dialog" aria-modal="true" aria-labelledby="modal-cybersecurity-title" tabindex="-1">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close Cybersecurity details">&times;</button>
-      <h3 id="modal-cybersecurity-title">Cybersecurity</h3>
-      <p>Protect your organization from evolving cyber threats with our comprehensive cybersecurity services.</p>
-      <p>Our cybersecurity solutions cover:</p>
-      <ul>
-        <li>Risk assessments and vulnerability scanning.</li>
-        <li>Endpoint protection and firewall management.</li>
-        <li>Security awareness training for your staff.</li>
-        <li>Incident response and threat mitigation.</li>
-        <li>Compliance with industry security standards.</li>
-      </ul>
-      <p>We help you build a resilient security posture that safeguards your critical assets.</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-compliance" role="dialog" aria-modal="true" aria-labelledby="modal-compliance-title" tabindex="-1">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close Compliance details">&times;</button>
-      <h3 id="modal-compliance-title">Compliance</h3>
-      <p>Stay ahead of regulatory requirements and industry standards with our compliance consulting and solutions.</p>
-      <p>Our services include:</p>
-      <ul>
-        <li>Gap analysis and compliance audits.</li>
-        <li>Policy development and documentation.</li>
-        <li>Implementation of technical controls and safeguards.</li>
-        <li>Continuous monitoring and reporting.</li>
-        <li>Support for GDPR, HIPAA, PCI-DSS, and other standards.</li>
-      </ul>
-      <p>We help you reduce risk and maintain trust with your customers and partners.</p>
-    </div>
-  </div>
-
-  <script>
-    // Navigation active link highlight on scroll with smooth fade-in for sections
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('header nav a');
-
-    function activateNavLinkOnScroll() {
-      let scrollPos = window.scrollY + window.innerHeight / 3;
-
-      sections.forEach(section => {
-        if (
-          scrollPos >= section.offsetTop &&
-          scrollPos < section.offsetTop + section.offsetHeight
-        ) {
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + section.id) {
-              link.classList.add('active');
-            }
-          });
-          section.classList.add('visible');
-        }
+    try {
+      // Using FormSubmit.co service - no backend needed
+      const response = await fetch("https://formsubmit.co/info@seraphis-it.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New contact from ${formData.name}`,
+          _captcha: "false",
+        }),
       });
-    }
 
-    window.addEventListener('scroll', activateNavLinkOnScroll);
-    window.addEventListener('load', () => {
-      // Reveal sections in view on load
-      activateNavLinkOnScroll();
-    });
-
-    // Remove JavaScript form submission handler to allow normal POST to send_email.php
-
-    // Modal functionality
-    const modalButtons = document.querySelectorAll('.details-btn');
-    const modals = document.querySelectorAll('.modal-overlay');
-    let lastFocusedElement;
-
-    modalButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const modalId = button.getAttribute('data-modal');
-        openModal(modalId, button);
-      });
-    });
-
-    modals.forEach(modal => {
-      const closeBtn = modal.querySelector('.modal-close');
-      closeBtn.addEventListener('click', () => closeModal(modal));
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal(modal);
-        }
-      });
-    });
-
-    function openModal(id, triggerButton) {
-      lastFocusedElement = triggerButton;
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      trapFocus(modal);
-      // Move focus to modal content heading for screen readers
-      const heading = modal.querySelector('h3');
-      if (heading) heading.focus();
-      // Prevent body scroll when modal open
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(modal) {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      releaseFocusTrap();
-      if (lastFocusedElement) {
-        lastFocusedElement.focus();
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Failed to send message");
       }
-      // Restore body scroll
-      document.body.style.overflow = '';
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
+  };
 
-    // Focus trap inside modal
-    let focusTrapElement = null;
-    function trapFocus(element) {
-      focusTrapElement = element;
-      const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
-      const focusableElements = element.querySelectorAll(focusableElementsString);
-      if (focusableElements.length === 0) return;
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
 
-      const firstFocusable = focusableElements[0];
-      const lastFocusable = focusableElements[focusableElements.length -1];
+  return (
+    <div className="min-h-screen bg-background font-['Open_Sans']">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 bg-card text-primary z-50 shadow-lg border-b-2 border-primary/30">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="font-['Playfair_Display'] text-2xl font-black tracking-wider cursor-default">
+            Seraphis IT &amp; Data Solutions
+          </h1>
+          <nav className="flex gap-8">
+            {["Home", "Industries", "Solutions", "Testimonials", "Contact"].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className="font-semibold text-sm uppercase tracking-wider border-b-2 border-transparent hover:border-primary transition-all pb-1"
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </header>
 
-      function handleTrap(e) {
-        if (e.key === 'Tab') {
-          if (e.shiftKey) { // shift + tab
-            if (document.activeElement === firstFocusable) {
-              e.preventDefault();
-              lastFocusable.focus();
-            }
-          } else { // tab
-            if (document.activeElement === lastFocusable) {
-              e.preventDefault();
-              firstFocusable.focus();
-            }
-          }
-        }
-        if (e.key === 'Escape') {
-          closeModal(focusTrapElement);
-        }
-      }
+      <main className="pt-24">
+        {/* Hero Section */}
+        <section
+          id="home"
+          className="relative text-center py-32 px-4 bg-gradient-to-br from-background via-primary/10 to-secondary/20 rounded-3xl mx-4 mb-12 overflow-hidden"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-primary/20 to-transparent rounded-3xl" />
+          <div className="relative z-10">
+            <h1 className="font-['Playfair_Display'] text-6xl font-black mb-4 text-primary tracking-wide drop-shadow-lg">
+              Empowering Your Business with Innovative IT Solutions
+            </h1>
+            <p className="text-2xl font-semibold max-w-3xl mx-auto mb-8 text-foreground/90">
+              Your trusted MSP and ISV partner for Data Analytics, Managed IT, Cybersecurity, and
+              Compliance.
+            </p>
+            <Button
+              onClick={() => scrollToSection("contact")}
+              className="text-xl px-8 py-6 rounded-full font-black uppercase tracking-wider shadow-2xl hover:shadow-primary/50 transition-all bg-gradient-to-r from-primary to-secondary"
+            >
+              Get in Touch
+            </Button>
+          </div>
+        </section>
 
-      element.addEventListener('keydown', handleTrap);
-      element._handleTrap = handleTrap;
+        {/* Industries Section */}
+        <section id="industries" className="max-w-6xl mx-auto px-4 py-20">
+          <h2 className="font-['Playfair_Display'] text-5xl font-black mb-12 text-primary border-l-8 border-primary pl-4">
+            Industries We Serve
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { icon: "🏥", title: "Healthcare", desc: "Secure and compliant IT solutions tailored for healthcare providers and institutions." },
+              { icon: "💼", title: "Finance", desc: "Robust data analytics and cybersecurity services for banking and financial organizations." },
+              { icon: "🛒", title: "Retail", desc: "Optimizing retail operations with custom applications and managed IT services." },
+              { icon: "🏭", title: "Manufacturing", desc: "Innovative IT infrastructure and analytics to streamline manufacturing processes." },
+              { icon: "🎓", title: "Education", desc: "Secure learning environments and data-driven insights for educational institutions." },
+            ].map((industry) => (
+              <div
+                key={industry.title}
+                className="bg-card rounded-2xl p-8 shadow-lg border border-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2 transition-all text-center"
+              >
+                <div className="text-6xl mb-4">{industry.icon}</div>
+                <h3 className="font-['Playfair_Display'] text-2xl font-black mb-3 text-primary">
+                  {industry.title}
+                </h3>
+                <p className="text-foreground/80 leading-relaxed">{industry.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      // Focus first element inside modal
-      firstFocusable.focus();
-    }
+        {/* Solutions Section */}
+        <section id="solutions" className="max-w-6xl mx-auto px-4 py-20">
+          <h2 className="font-['Playfair_Display'] text-5xl font-black mb-12 text-primary border-l-8 border-primary pl-4">
+            Our Solutions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {[
+              { icon: "📊", title: "Data Analytics", desc: "Transform your data into actionable insights to drive better business decisions." },
+              { icon: "💻", title: "Application Development", desc: "Custom software solutions tailored to your business needs and goals." },
+              { icon: "🛠️", title: "Managed IT Services", desc: "Proactive IT management and support to keep your operations running smoothly." },
+              { icon: "🛡️", title: "Cybersecurity", desc: "Protect your business with comprehensive security strategies and solutions." },
+              { icon: "📜", title: "Compliance", desc: "Ensure your business meets industry regulations and standards effortlessly." },
+            ].map((solution) => (
+              <div
+                key={solution.title}
+                className="bg-card rounded-3xl p-10 shadow-xl border border-primary/20 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-3 transition-all flex flex-col items-center text-center"
+              >
+                <div className="text-7xl mb-6">{solution.icon}</div>
+                <h3 className="font-['Playfair_Display'] text-3xl font-black mb-4 text-primary">
+                  {solution.title}
+                </h3>
+                <p className="text-foreground/80 text-lg leading-relaxed mb-6">{solution.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-    function releaseFocusTrap() {
-      if (!focusTrapElement) return;
-      focusTrapElement.removeEventListener('keydown', focusTrapElement._handleTrap);
-      focusTrapElement = null;
-    }
-  </script>
-</body>
-</html>
+        {/* Testimonials Section */}
+        <section id="testimonials" className="max-w-6xl mx-auto px-4 py-20">
+          <h2 className="font-['Playfair_Display'] text-5xl font-black mb-12 text-primary border-l-8 border-primary pl-4">
+            What Our Clients Say
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {[
+              { text: "Seraphis transformed our IT infrastructure with their expert managed services. Their proactive approach gave us peace of mind and improved efficiency drastically.", author: "Lisa M., CFO, FinCorp" },
+              { text: "Their custom application development perfectly matched our unique business needs, accelerating our digital transformation journey. Highly recommend!", author: "Mark T., CEO, RetailWorld" },
+              { text: "Thanks to Seraphis' cybersecurity expertise, we feel confident our data and systems are protected against evolving threats. Their team is responsive and knowledgeable.", author: "Sarah K., IT Director, HealthPlus" },
+              { text: "Their data analytics solutions helped us uncover critical insights, driving strategic decisions and business growth. The dashboards are intuitive and powerful.", author: "David R., Operations Manager, ManufacPro" },
+            ].map((testimonial, idx) => (
+              <div
+                key={idx}
+                className="bg-card rounded-3xl p-10 shadow-xl border border-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2 transition-all relative"
+              >
+                <div className="absolute top-6 left-6 text-7xl text-primary/30 font-['Playfair_Display'] font-black">
+                  "
+                </div>
+                <p className="italic text-lg text-foreground/80 mb-6 leading-relaxed pt-8">
+                  {testimonial.text}
+                </p>
+                <p className="font-bold text-primary text-right font-['Playfair_Display']">
+                  — {testimonial.author}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="max-w-3xl mx-auto px-4 py-20">
+          <h2 className="font-['Playfair_Display'] text-5xl font-black mb-8 text-primary border-l-8 border-primary pl-4">
+            Contact Us
+          </h2>
+          <p className="text-xl text-foreground/80 mb-4">
+            Have questions or want to discuss your IT needs? Reach out to us!
+          </p>
+          <p className="text-lg mb-8">
+            <strong>Phone:</strong>{" "}
+            <a href="tel:+27670542001" className="text-primary hover:text-secondary">
+              +27 67 054 2001
+            </a>
+            <br />
+            <strong>Email:</strong>{" "}
+            <a href="mailto:info@seraphis-it.com" className="text-primary hover:text-secondary">
+              info@seraphis-it.com
+            </a>
+          </p>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block mb-2 font-bold text-primary text-lg">
+                Name *
+              </label>
+              <Input
+                id="name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+                placeholder="Your full name"
+                className="text-lg py-6 border-2 border-input focus:border-primary"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block mb-2 font-bold text-primary text-lg">
+                Email *
+              </label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                placeholder="your.email@example.com"
+                className="text-lg py-6 border-2 border-input focus:border-primary"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block mb-2 font-bold text-primary text-lg">
+                Message *
+              </label>
+              <Textarea
+                id="message"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                required
+                rows={5}
+                placeholder="Write your message here..."
+                className="text-lg border-2 border-input focus:border-primary resize-y"
+              />
+            </div>
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full text-xl py-7 rounded-full font-black uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all bg-gradient-to-r from-primary to-secondary"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="text-center py-12 border-t-2 border-primary/30 mt-20">
+        <p className="text-primary font-semibold tracking-wide">
+          &copy; 2024 Seraphis IT and Data Solutions |{" "}
+          <a
+            href="https://linkedin.com/company/seraphis"
+            target="_blank"
+            rel="noopener"
+            className="hover:text-secondary transition-colors mx-2"
+          >
+            LinkedIn
+          </a>{" "}
+          |{" "}
+          <a
+            href="https://twitter.com/seraphis"
+            target="_blank"
+            rel="noopener"
+            className="hover:text-secondary transition-colors mx-2"
+          >
+            Twitter
+          </a>{" "}
+          |{" "}
+          <a
+            href="mailto:info@seraphis-it.com"
+            className="hover:text-secondary transition-colors mx-2"
+          >
+            Email Us
+          </a>
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default Index;
